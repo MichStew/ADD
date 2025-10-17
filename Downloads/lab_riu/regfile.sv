@@ -13,8 +13,8 @@ module regfile (
 
 /**** outputs ****************************************************************/
 
-        output [31:0] readdata1,        /* read data 1 */
-        output [31:0] readdata2         /* read data 2 */
+        output logic [31:0] readdata1,        /* read data 1 */
+        output logic [31:0] readdata2         /* read data 2 */
 );
 
 logic [31:0] mem[31:0];
@@ -24,9 +24,9 @@ always_ff @(posedge clk) begin
 end
 
 always_comb begin
-        // $monitor("reg 6: %8h", mem[6]);
-        // $monitor("reg 5: %8h", mem[5]);
-        // $monitor("writeaddr: %8h, we: %1h", writeaddr, we);
+         $monitor("reg 6: %8h", mem[6]);
+         $monitor("reg 5: %8h", mem[5]);
+         $monitor("writeaddr: %8h, we: %1h", writeaddr, we);
 
         if (readaddr1 == 5'd0) readdata1 = 32'd0;
         else if (we && readaddr1 == writeaddr) readdata1 = writedata;

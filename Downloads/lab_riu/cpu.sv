@@ -4,7 +4,7 @@ module cpu(
     input logic clk, 
     input logic res, // named res, needs to match below 
     input logic [17:0] gpio_in,
-    output logic [17:0] gpio_out
+    output logic [31:0] gpio_out
 );
 
     // 3 stages ... 1. fetch, 2. execute, 3. writeback
