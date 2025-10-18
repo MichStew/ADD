@@ -139,7 +139,7 @@ module cpu(
     	case(regsel_EX)
     		2'b00: writedata = 32'b0; // Default 
     		2'b01: writedata = {imm20, 12'b0}; // write immediate 
-    		2'b10: writedata = gpio_in;  // Normal: write ALU result 
+    		2'b10: writedata = alu_result;  // Normal: write ALU result 
     		2'b11: writedata = gpio_in; // CSRRW read: write GPIO input 
     		default: writedata = 32'b0;
     	endcase

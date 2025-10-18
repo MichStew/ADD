@@ -48,22 +48,24 @@ initial begin
 	
 	$display("\n Test 1: Instruction Fetch");
 	#100 // supposed to run for 10 clock cycles
-	$display("PC= %h", "dut.mycpu.pc_F");
+	$display("PC= %h", dut.my_cpu.pc_F);
 	$display("finish this junk later lol.");
 	
 	repeat(20) begin 
 	#10
-	$display("%0t\t%h\t%h\t\t%h", $time, dut.mycpu.pc_F,
-	dut.mycpu.instruction_EX, dut.mycpu.rf.mem[5]);
+	$display("%0t\t%h\t%h\t\t%h", $time, dut.my_cpu.pc_F,
+	dut.mycpu.instruction_EX, dut.my_cpu.rf.mem[5]);
 	end 
 	// Check output 
 	$display("\n Final Ouput");
 	$display("GPIO Output (0xF00) = %d (decimal) = %h (hex)",
-	dut.gpio_out, dut.gpio_out);
-	if (dut.gpio_out == 32'hC0000000) begin 
+	dut.my_cpu.gpio_out, dut.my_cpu.gpio_out);
+	if (dut.my_cpu.gpio_out == 32'hC0000000) begin 
 	  $display("test passed");
 	end else begin 
 	  $display("test failed");
+	end 
+$finish; 
 end 
 
 
