@@ -68,7 +68,8 @@ hexdriver hex7 (.val(bridge[31:28]), .HEX(HEX7));
 // CPU 
 cpu my_cpu(
         .clk(CLOCK_50),  // also active low button, so we invert it 
-        .res(~KEY[0]),  // reset by pressing first button, rubric says this *i think*
+        .res(KEY[0]),  // reset by pressing first button, rubric says this *i think*
+        // posedge makes this an active high signal??
         .gpio_in({14'b0, SW[17:0]}), // 18 bit signal from board, need to match in cpu. 
         .gpio_out(bridge) 
 ); 

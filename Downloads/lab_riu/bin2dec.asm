@@ -1,48 +1,63 @@
-# Binary to Decimal Converter for RISC-V CPU
-# Haley Lind & Michael Stewart
-# CSCE611 Fall 2025
+.text
 
-# Read input, should be resetable with key0
-csrrw t0, 0xF02, zero       
-andi t0, t0, 0xFF           # t0 = input value (0-255)
 
-# Algorithm: Extract decimal digits by dividing by powers of 10
-# For 3-digit decimal (0-255):
-#   hundreds = value / 100
-#   tens = (value % 100) / 10
-#   ones = value % 10
+csrrw, x1, 0xF00, x0 
 
-# --- Get HUNDREDS digit ---
-li t1, 100                  # t1 = 100
-div t2, t0, t1              # t2 = t0 / 100 (hundreds digit)
-mul t3, t2, t1             
-sub t0, t0, t3  
+lui x9, 0x40
+addi x9, x9, -1 
+and x1, x1, x9 
 
-li t1, 10
-div t3, t0, t1       
-mul t4, t3, t1              
-sub t0, t0, t4 
+lui x2, 0x1999a
+andi x2, x2, -0x666
 
-# Now: t2 = hundreds, t3 = tens, t0 = ones
+addi x3, x0, 10
+addi x4, x0, 0
 
-# --- Pack digits for HEX display ---
-# We need to pack three 4-bit values into one 32-bit word
-# Format: 0x00000HTO where H=hundreds, T=tens, O=ones
-# Each digit occupies one nibble (4 bits)
+mulhu x1, x5, x2
+mul x6, x5, x3
+sub x7, x1, x6
+or x4, x4, x7 
 
-slli t2, t2, 8              # hundreds << 8 (move to bits [11:8])
-slli t3, t3, 4              # tens << 4 (move to bits [7:4])
-# ones is already in bits [3:0]
+mv x1, x5 
+mulhu x5, x1, x2
+mul x6, x5, x3
+sub x7, x1, x6
+slli x7, x7, 4
+or x4, x4, x7 
 
-or t4, t2, t3               # Combine hundreds and tens
-or t4, t4, t0               # Add ones digit
+mv x1, x5 
+mulhu x5, x1, x2
+mul x6, x5, x3
+sub x7, x1, x6
+slli x7, x7, 8
+or x4, x4, x7 
 
-# Result in t4: 0x00000HTO
-csrrw zero, 0xF00, t4       # Write to GPIO output register 0xF00
 
-# --- Loop forever (halt) ---
-# Since we don't have branch/jump, just do some no-ops
-addi zero, zero, 0
-addi zero, zero, 0
-addi zero, zero, 0
-addi zero, zero, 0
+mv x1, x5 
+mulhu x5, x1, x2
+mul x6, x5, x3
+sub x7, x1, x6
+slli x7, x7, 12
+or x4, x4, x7 
+
+mv x1, x5 
+mulhu x5, x1, x2
+mul x6, x5, x3
+sub x7, x1, x6
+slli x7, x7, 16
+or x4, x4, x7 
+
+
+mv x1, x5 
+mulhu x5, x1, x2
+mul x6, x5, x3
+sub x7, x1, x6
+slli x7, x7, 20
+or x4, x4, x7 
+
+
+csrrw x0, 0xF02, x4
+
+addi x0, x0, 0 
+addi x0, x0, 0 
+
