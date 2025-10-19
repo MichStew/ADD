@@ -96,16 +96,19 @@ module ctrl_unit(
                 aluop_EX    = 4'b0000;
 
                 if (imm12 == 12'hF00) begin
-                    GPIO_we     = 1'b1;
-                    regwrite_EX = 1'b0;
+                    GPIO_we     = 1'b0;
+                    regwrite_EX = 1'b1;
+                    regsel_EX = 2'b11;
                 end
                 else if (imm12 == 12'hF02) begin
-                    GPIO_we     = 1'b0;
+                    GPIO_we     = 1'b1;
                     regwrite_EX = 1'b1;
                     regsel_EX   = 2'b11;
                 end
                 else begin
                     GPIO_we = 1'b0;
+                    regwrite_EX = 1'b0;
+                    regsel_EX = 2'b00;
                 end
             end
 

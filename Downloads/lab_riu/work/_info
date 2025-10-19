@@ -10,7 +10,7 @@ cModel Technology
 d/acct/mcs46/Downloads/lab_riu
 valu
 Z0 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z1 !s110 1760903253
+Z1 !s110 1760904157
 !i10b 1
 !s100 Fz;21dl2PMZ6MFeGeLCUd1
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -21,13 +21,13 @@ Z4 d/acct/mcs46/ADD/Downloads/lab_riu
 Z5 w1760901883
 8alu.sv
 Falu.sv
-!i122 10
+!i122 11
 L0 7 48
 Z6 OL;L;2020.1;71
 r1
 !s85 0
 31
-Z7 !s108 1760903253.000000
+Z7 !s108 1760904157.000000
 !s107 top.sv|simtop.sv|riscv_32_instr_decoder.sv|regfile.sv|lut.sv|hexdriver.sv|ctrl_unit.sv|cpu.sv|alu.sv|
 Z8 !s90 -pedanticerrors|-lint|-hazards|-source|-stats=all|alu.sv|cpu.sv|ctrl_unit.sv|hexdriver.sv|lut.sv|regfile.sv|riscv_32_instr_decoder.sv|simtop.sv|top.sv|
 !i113 0
@@ -46,7 +46,7 @@ R4
 w1760903026
 8cpu.sv
 Fcpu.sv
-!i122 10
+!i122 11
 L0 3 156
 R6
 r1
@@ -71,7 +71,7 @@ R4
 w1760901981
 8ctrl_unit.sv
 Fctrl_unit.sv
-!i122 10
+!i122 11
 L0 11 113
 R6
 r1
@@ -96,7 +96,7 @@ R4
 R5
 8hexdriver.sv
 Fhexdriver.sv
-!i122 10
+!i122 11
 L0 1 26
 R6
 r1
@@ -121,7 +121,7 @@ R4
 R5
 8regfile.sv
 Fregfile.sv
-!i122 10
+!i122 11
 L0 3 38
 R6
 r1
@@ -146,7 +146,7 @@ R4
 R5
 8riscv_32_instr_decoder.sv
 Friscv_32_instr_decoder.sv
-!i122 10
+!i122 11
 L0 7 40
 R6
 r1

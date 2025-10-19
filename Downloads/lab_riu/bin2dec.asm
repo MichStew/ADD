@@ -1,7 +1,7 @@
 .text
 
 
-csrrw, x1, 0xF00, x0 
+csrrw x1, 0xF00, x0 
 
 lui x9, 0x40
 addi x9, x9, -1 

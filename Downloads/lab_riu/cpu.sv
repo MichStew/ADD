@@ -3,7 +3,7 @@
 module cpu(
     input logic clk, 
     input logic res, // named res, needs to match below 
-    input logic [32:0] gpio_in,
+    input logic [17:0] gpio_in,
     output logic [31:0] gpio_out
 );
 
@@ -140,7 +140,7 @@ module cpu(
     		2'b00: writedata = 32'b0; // Default 
     		2'b01: writedata = {imm20, 12'b0}; // write immediate 
     		2'b10: writedata = alu_result;  // Normal: write ALU result 
-    		2'b11: writedata = gpio_in; // CSRRW read: write GPIO input 
+    		2'b11: writedata = {14'b0,gpio_in}; // CSRRW read: write GPIO input 
     		default: writedata = 32'b0;
     	endcase
     end
