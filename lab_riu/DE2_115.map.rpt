@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE2_115
-Sun Oct 19 17:10:43 2025
+Sun Oct 19 18:12:35 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -60,15 +60,15 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct 19 17:10:43 2025           ;
+; Analysis & Synthesis Status        ; Successful - Sun Oct 19 18:12:34 2025           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; DE2_115                                         ;
 ; Top-level Entity Name              ; top                                             ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 1,519                                           ;
-;     Total combinational functions  ; 1,468                                           ;
-;     Dedicated logic registers      ; 153                                             ;
-; Total registers                    ; 153                                             ;
+; Total logic elements               ; 1,556                                           ;
+;     Total combinational functions  ; 1,487                                           ;
+;     Dedicated logic registers      ; 171                                             ;
+; Total registers                    ; 171                                             ;
 ; Total pins                         ; 108                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 2,048                                           ;
@@ -168,22 +168,21 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 24          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
-; Maximum used               ; 16          ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
-;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.1%      ;
-;     Processor 7            ;   0.1%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
 ;     Processor 8            ;   0.0%      ;
-;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -225,20 +224,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,519          ;
+; Estimated Total logic elements              ; 1,556          ;
 ;                                             ;                ;
-; Total combinational functions               ; 1468           ;
+; Total combinational functions               ; 1487           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 870            ;
-;     -- 3 input functions                    ; 491            ;
-;     -- <=2 input functions                  ; 107            ;
+;     -- 4 input functions                    ; 905            ;
+;     -- 3 input functions                    ; 487            ;
+;     -- <=2 input functions                  ; 95             ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 1168           ;
+;     -- normal mode                          ; 1187           ;
 ;     -- arithmetic mode                      ; 300            ;
 ;                                             ;                ;
-; Total registers                             ; 153            ;
-;     -- Dedicated logic registers            ; 153            ;
+; Total registers                             ; 171            ;
+;     -- Dedicated logic registers            ; 171            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 108            ;
@@ -247,8 +246,8 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 16             ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 217            ;
-; Total fan-out                               ; 6783           ;
+; Maximum fan-out                             ; 235            ;
+; Total fan-out                               ; 6923           ;
 ; Average fan-out                             ; 3.54           ;
 +---------------------------------------------+----------------+
 
@@ -258,15 +257,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                            ; Entity Name     ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+-----------------+--------------+
-; |top                                         ; 1468 (1)            ; 153 (0)                   ; 2048        ; 16           ; 0       ; 8         ; 108  ; 0            ; |top                                                                           ; top             ; work         ;
-;    |cpu:my_cpu|                              ; 1411 (646)          ; 153 (69)                  ; 2048        ; 16           ; 0       ; 8         ; 0    ; 0            ; |top|cpu:my_cpu                                                                ; cpu             ; work         ;
-;       |alu:alu_inst|                         ; 619 (448)           ; 0 (0)                     ; 0           ; 16           ; 0       ; 8         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst                                                   ; alu             ; work         ;
+; |top                                         ; 1487 (1)            ; 171 (0)                   ; 2048        ; 16           ; 0       ; 8         ; 108  ; 0            ; |top                                                                           ; top             ; work         ;
+;    |cpu:my_cpu|                              ; 1430 (647)          ; 171 (87)                  ; 2048        ; 16           ; 0       ; 8         ; 0    ; 0            ; |top|cpu:my_cpu                                                                ; cpu             ; work         ;
+;       |alu:alu_inst|                         ; 627 (456)           ; 0 (0)                     ; 0           ; 16           ; 0       ; 8         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst                                                   ; alu             ; work         ;
 ;          |lpm_mult:Mult0|                    ; 79 (0)              ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0                                    ; lpm_mult        ; work         ;
 ;             |mult_7dt:auto_generated|        ; 79 (79)             ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0|mult_7dt:auto_generated            ; mult_7dt        ; work         ;
 ;          |lpm_mult:Mult1|                    ; 92 (0)              ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst|lpm_mult:Mult1                                    ; lpm_mult        ; work         ;
 ;             |mult_46t:auto_generated|        ; 92 (92)             ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst|lpm_mult:Mult1|mult_46t:auto_generated            ; mult_46t        ; work         ;
-;       |ctrl_unit:ctrl|                       ; 34 (34)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|ctrl_unit:ctrl                                                 ; ctrl_unit       ; work         ;
-;       |regfile:rf|                           ; 112 (112)           ; 84 (84)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|regfile:rf                                                     ; regfile         ; work         ;
+;       |ctrl_unit:ctrl|                       ; 45 (45)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|ctrl_unit:ctrl                                                 ; ctrl_unit       ; work         ;
+;       |regfile:rf|                           ; 111 (111)           ; 84 (84)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|regfile:rf                                                     ; regfile         ; work         ;
 ;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0                                ; altsyncram      ; work         ;
 ;             |altsyncram_mcc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0|altsyncram_mcc1:auto_generated ; altsyncram_mcc1 ; work         ;
 ;          |altsyncram:mem_rtl_1|              ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_1                                ; altsyncram      ; work         ;
@@ -358,13 +357,14 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +-------------------------------------------+-------------------------------------------+
 ; Register name                             ; Reason for Removal                        ;
 +-------------------------------------------+-------------------------------------------+
+; cpu:my_cpu|gpio_in_sync[18..31]           ; Stuck at GND due to stuck port data_in    ;
 ; cpu:my_cpu|instruction_EX[3,11]           ; Stuck at GND due to stuck port data_in    ;
 ; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[9] ; Stuck at GND due to stuck port data_in    ;
 ; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[9] ; Stuck at GND due to stuck port data_in    ;
 ; cpu:my_cpu|instruction_EX[1,4]            ; Merged with cpu:my_cpu|instruction_EX[0]  ;
 ; cpu:my_cpu|instruction_EX[18]             ; Merged with cpu:my_cpu|instruction_EX[10] ;
 ; cpu:my_cpu|pc_F[12..31]                   ; Lost fanout                               ;
-; Total Number of Removed Registers = 27    ;                                           ;
+; Total Number of Removed Registers = 41    ;                                           ;
 +-------------------------------------------+-------------------------------------------+
 
 
@@ -383,7 +383,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 153   ;
+; Total registers                              ; 171   ;
 ; Number of registers using Synchronous Clear  ; 26    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -487,23 +487,23 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +--------------------------------------------+---------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |top|cpu:my_cpu|gpio_out_reg[3]         ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |top|cpu:my_cpu|regfile:rf|readdata1[4] ;
-; 6:1                ; 20 bits   ; 80 LEs        ; 60 LEs               ; 20 LEs                 ; No         ; |top|cpu:my_cpu|Mux13                   ;
-; 7:1                ; 11 bits   ; 44 LEs        ; 33 LEs               ; 11 LEs                 ; No         ; |top|cpu:my_cpu|Mux22                   ;
-; 19:1               ; 6 bits    ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |top|cpu:my_cpu|Mux41                   ;
-; 18:1               ; 4 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |top|cpu:my_cpu|Mux54                   ;
-; 18:1               ; 4 bits    ; 48 LEs        ; 44 LEs               ; 4 LEs                  ; No         ; |top|cpu:my_cpu|Mux48                   ;
-; 20:1               ; 4 bits    ; 52 LEs        ; 44 LEs               ; 8 LEs                  ; No         ; |top|cpu:my_cpu|Mux39                   ;
-; 19:1               ; 4 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |top|cpu:my_cpu|Mux58                   ;
-; 21:1               ; 2 bits    ; 28 LEs        ; 26 LEs               ; 2 LEs                  ; No         ; |top|cpu:my_cpu|Mux34                   ;
-; 20:1               ; 2 bits    ; 26 LEs        ; 24 LEs               ; 2 LEs                  ; No         ; |top|cpu:my_cpu|Mux60                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |top|cpu:my_cpu|gpio_out_reg[22]         ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |top|cpu:my_cpu|regfile:rf|readdata1[26] ;
+; 6:1                ; 20 bits   ; 80 LEs        ; 60 LEs               ; 20 LEs                 ; No         ; |top|cpu:my_cpu|Mux4                     ;
+; 7:1                ; 11 bits   ; 44 LEs        ; 33 LEs               ; 11 LEs                 ; No         ; |top|cpu:my_cpu|Mux22                    ;
+; 19:1               ; 6 bits    ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |top|cpu:my_cpu|Mux45                    ;
+; 18:1               ; 4 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |top|cpu:my_cpu|Mux55                    ;
+; 18:1               ; 4 bits    ; 48 LEs        ; 44 LEs               ; 4 LEs                  ; No         ; |top|cpu:my_cpu|Mux48                    ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 44 LEs               ; 8 LEs                  ; No         ; |top|cpu:my_cpu|Mux36                    ;
+; 19:1               ; 4 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |top|cpu:my_cpu|Mux57                    ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 26 LEs               ; 2 LEs                  ; No         ; |top|cpu:my_cpu|Mux34                    ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 24 LEs               ; 2 LEs                  ; No         ; |top|cpu:my_cpu|Mux60                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------+
@@ -787,13 +787,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cpu:my_cpu"                                                                                                                                                                           ;
-+---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type  ; Severity ; Details                                                                                                                                                                             ;
-+---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; gpio_in ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (18 bits) it drives.  The 14 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------+
+; Port Connectivity Checks: "cpu:my_cpu"            ;
++-----------------+-------+----------+--------------+
+; Port            ; Type  ; Severity ; Details      ;
++-----------------+-------+----------+--------------+
+; gpio_in[31..18] ; Input ; Info     ; Stuck at GND ;
++-----------------+-------+----------+--------------+
 
 
 +-----------------------------------------------------+
@@ -802,26 +802,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 108                         ;
-; cycloneiii_ff         ; 153                         ;
+; cycloneiii_ff         ; 171                         ;
 ;     ENA               ; 32                          ;
 ;     SCLR              ; 26                          ;
-;     plain             ; 95                          ;
-; cycloneiii_lcell_comb ; 1476                        ;
+;     plain             ; 113                         ;
+; cycloneiii_lcell_comb ; 1495                        ;
 ;     arith             ; 300                         ;
 ;         2 data inputs ; 47                          ;
 ;         3 data inputs ; 253                         ;
-;     normal            ; 1176                        ;
+;     normal            ; 1195                        ;
 ;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 10                          ;
-;         2 data inputs ; 55                          ;
-;         3 data inputs ; 238                         ;
-;         4 data inputs ; 870                         ;
+;         2 data inputs ; 43                          ;
+;         3 data inputs ; 234                         ;
+;         4 data inputs ; 905                         ;
 ; cycloneiii_mac_mult   ; 8                           ;
 ; cycloneiii_mac_out    ; 8                           ;
 ; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 16.00                       ;
-; Average LUT depth     ; 9.42                        ;
+; Average LUT depth     ; 9.17                        ;
 +-----------------------+-----------------------------+
 
 
@@ -830,7 +830,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:09     ;
+; Top            ; 00:00:10     ;
 +----------------+--------------+
 
 
@@ -840,24 +840,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sun Oct 19 17:10:27 2025
+    Info: Processing started: Sun Oct 19 18:12:16 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE2_115 -c DE2_115
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file top.sv
     Info (12023): Found entity 1: top File: /acct/mcs46/lab_riu/top.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file hexdriver.sv
     Info (12023): Found entity 1: hexdriver File: /acct/mcs46/lab_riu/hexdriver.sv Line: 1
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Warning (10858): Verilog HDL warning at top.sv(45): object ledclk used but never assigned File: /acct/mcs46/lab_riu/top.sv Line: 45
-Warning (10230): Verilog HDL assignment warning at top.sv(84): truncated value with size 26 to match size of target (24) File: /acct/mcs46/lab_riu/top.sv Line: 84
-Warning (10230): Verilog HDL assignment warning at top.sv(95): truncated value with size 32 to match size of target (24) File: /acct/mcs46/lab_riu/top.sv Line: 95
+Warning (10230): Verilog HDL assignment warning at top.sv(85): truncated value with size 26 to match size of target (24) File: /acct/mcs46/lab_riu/top.sv Line: 85
+Warning (10230): Verilog HDL assignment warning at top.sv(96): truncated value with size 32 to match size of target (24) File: /acct/mcs46/lab_riu/top.sv Line: 96
 Warning (10034): Output port "LEDG" at top.sv(15) has no driver File: /acct/mcs46/lab_riu/top.sv Line: 15
 Warning (10034): Output port "LEDR" at top.sv(16) has no driver File: /acct/mcs46/lab_riu/top.sv Line: 16
 Info (12128): Elaborating entity "hexdriver" for hierarchy "hexdriver:hex" File: /acct/mcs46/lab_riu/top.sv Line: 59
 Warning (12125): Using design file cpu.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: cpu File: /acct/mcs46/lab_riu/cpu.sv Line: 3
-Info (12128): Elaborating entity "cpu" for hierarchy "cpu:my_cpu" File: /acct/mcs46/lab_riu/top.sv Line: 75
+Info (12128): Elaborating entity "cpu" for hierarchy "cpu:my_cpu" File: /acct/mcs46/lab_riu/top.sv Line: 76
 Warning (10850): Verilog HDL warning at cpu.sv(64): number of words (45) in memory file does not match the number of elements in the address range [0:4095] File: /acct/mcs46/lab_riu/cpu.sv Line: 64
 Warning (10030): Net "instruction_mem.data_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/lab_riu/cpu.sv Line: 61
 Warning (10030): Net "instruction_mem.waddr_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/lab_riu/cpu.sv Line: 61
@@ -956,7 +955,6 @@ Info (12133): Instantiated megafunction "cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
     Info (12023): Found entity 1: mult_7dt File: /acct/mcs46/lab_riu/db/mult_7dt.tdf Line: 30
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13014): Ignored 456 buffer(s)
     Info (13019): Ignored 456 SOFT buffer(s)
 Warning (13024): Output pins are stuck at VCC or GND
@@ -998,17 +996,17 @@ Warning (21074): Design contains 5 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: /acct/mcs46/lab_riu/top.sv Line: 19
     Warning (15610): No output dependent on input pin "KEY[2]" File: /acct/mcs46/lab_riu/top.sv Line: 19
     Warning (15610): No output dependent on input pin "KEY[3]" File: /acct/mcs46/lab_riu/top.sv Line: 19
-Info (21057): Implemented 1750 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1787 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 25 input pins
     Info (21059): Implemented 83 output pins
-    Info (21061): Implemented 1562 logic cells
+    Info (21061): Implemented 1599 logic cells
     Info (21064): Implemented 64 RAM segments
     Info (21062): Implemented 16 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
-    Info: Peak virtual memory: 1086 megabytes
-    Info: Processing ended: Sun Oct 19 17:10:43 2025
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:22
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
+    Info: Peak virtual memory: 1051 megabytes
+    Info: Processing ended: Sun Oct 19 18:12:35 2025
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:25
 
 
 +------------------------------------------+

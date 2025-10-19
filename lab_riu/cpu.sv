@@ -3,7 +3,7 @@
 module cpu(
     input logic clk, 
     input logic res, // named res, needs to match below 
-    input logic [17:0] gpio_in,
+    input logic [31:0] gpio_in,
     output logic [31:0] gpio_out
 );
 
@@ -41,7 +41,7 @@ module cpu(
     
     //GPIO registers
     logic [31:0] gpio_out_reg;
-    
+    assign gpio_out = gpio_out_reg; 
     
     
     logic [31:0] pc_F, pc_next_F;
@@ -125,6 +125,9 @@ module cpu(
     );
     
     assign alu_A = readdata1;
+    logic [31:0] gpio_in_sync;
+    always_ff @(posedge clk) gpio_in_sync <= gpio_in;
+
     always_comb begin
     	case(alusrc_EX)
     		2'b00: alu_B = readdata2; // R type use rs2
@@ -140,7 +143,8 @@ module cpu(
     		2'b00: writedata = 32'b0; // Default 
     		2'b01: writedata = {imm20, 12'b0}; // write immediate 
     		2'b10: writedata = alu_result;  // Normal: write ALU result 
-    		2'b11: writedata = {14'b0,gpio_in}; // CSRRW read: write GPIO input 
+    		2'b11: writedata = gpio_in_sync;
+ // CSRRW read: write GPIO input 
     		default: writedata = 32'b0;
     	endcase
     end
@@ -153,6 +157,6 @@ module cpu(
    		gpio_out_reg <= readdata1; // write rs1 to GPIO
    	end
    end 
-   assign gpio_out = gpio_out_reg; 
+
     		 
 endmodule

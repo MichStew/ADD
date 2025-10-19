@@ -53,7 +53,7 @@ module top (
         
         //assign LEDR = leds[25:8];
         //assign LEDG = leds[7:0];  // update this to actually match the hardware 
-	//assign ledclk = clkdiv[23];
+	assign ledclk = clkdiv[23];
        
 // HEX DRIVERS instantiations 
 hexdriver hex (.val(bridge[3:0]), .HEX(HEX0));  // trying to use bridge to hex
@@ -65,13 +65,14 @@ hexdriver hex5 (.val(bridge[23:20]), .HEX(HEX5));
 hexdriver hex6 (.val(bridge[27:24]), .HEX(HEX6)); 
 hexdriver hex7 (.val(bridge[31:28]), .HEX(HEX7)); 
 
-// CPU 
+
+
 cpu my_cpu(
         .clk(CLOCK_50),  // also active low button, so we invert it 
-        .res(~KEY[0]),  // reset by pressing first button, rubric says this *i think*
+        .res(KEY[0]),  // reset by pressing first button, rubric says this *i think*
         // posedge makes this an active high signal??
-        .gpio_in({14'b0, SW[17:0]}), // 18 bit signal from board, need to match in cpu. 
-        .gpio_out(bridge) 
+       .gpio_in({14'b0, SW[17:0]}), // 18 bit signal from board, need to match in cpu. 
+       .gpio_out(bridge) 
 ); 
 
 

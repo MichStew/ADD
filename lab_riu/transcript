@@ -1,6 +1,6 @@
 # vsim -pedanticerrors -hazards -c -sva -immedassert work.simtop -do "/dev/stdin" 
-# Start time: 17:11:01 on Oct 19,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Start time: 17:57:54 on Oct 19,2025
+# ** Note: (vsim-3812) Design is being optimized...
 # //  Questa Sim-64
 # //  Version 2020.1 linux_x86_64 Jan 28 2020
 # //
@@ -18,8 +18,6 @@
 # Loading sv_std.std
 # Loading work.simtop(fast)
 # Loading work.cpu(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (18) does not match connection size (32) for port 'gpio_in'. The port definition is at: cpu.sv(6).
-#    Time: 0 ns  Iteration: 0  Instance: /simtop/dut/my_cpu File: top.sv Line: 69
 # do /dev/stdin
 # ======================================
 # Starting CPU test
@@ -29,18 +27,18 @@
 #############  Autofindloop Analysis  ###############
 #############  Loop found at time 45 ns ###############
 #   Active process: Atomic Verilog @ sub-iteration 0
-#     Source: top.sv:69
+#     Source: top.sv:70
 #   Active process: Atomic Verilog @ sub-iteration 1
-#     Source: top.sv:69
+#     Source: top.sv:70
 #   Active process: Atomic Verilog @ sub-iteration 1
-#     Source: top.sv:69
+#     Source: top.sv:70
 #   Active process: Atomic Verilog @ sub-iteration 1
-#     Source: top.sv:69
+#     Source: top.sv:70
 #   Active process: Atomic Verilog @ sub-iteration 2
-#     Source: top.sv:69
+#     Source: top.sv:70
 ################# END OF LOOP #################
 # ** Error (suppressible): (vsim-3601) Iteration limit 10000000 reached at time 45 ns.
 # 
 # <EOF>
-# End time: 17:11:02 on Oct 19,2025, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 1
+# End time: 17:57:56 on Oct 19,2025, Elapsed time: 0:00:02
+# Errors: 1, Warnings: 0

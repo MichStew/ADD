@@ -257,5 +257,4 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX7[6]
 
 
 set_global_assignment -name SYSTEMVERILOG_FILE top.sv
-
 set_global_assignment -name SYSTEMVERILOG_FILE ./hexdriver.sv
