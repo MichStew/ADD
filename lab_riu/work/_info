@@ -1,0 +1,221 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.01, Jan 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/acct/mcs46/lab_riu
+T_opt
+!s110 1760906885
+ViL1XaI1o3l68l9a=83MLY3
+04 6 4 work simtop fast 0
+=1-000ae431a4f1-68f54e84-d5dc9-1d0d2a
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2020.1;71
+R0
+valu
+Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z3 !s110 1760908261
+!i10b 1
+!s100 Fz;21dl2PMZ6MFeGeLCUd1
+Z4 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Idkda=b6UUa[8UodDQhYLI2
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+Z6 w1760906734
+8alu.sv
+Falu.sv
+!i122 8
+L0 7 48
+Z7 OL;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1760908261.000000
+!s107 top.sv|simtop.sv|riscv_32_instr_decoder.sv|regfile.sv|lut.sv|hexdriver.sv|ctrl_unit.sv|cpu.sv|alu.sv|
+Z9 !s90 -pedanticerrors|-lint|-hazards|-source|-stats=all|alu.sv|cpu.sv|ctrl_unit.sv|hexdriver.sv|lut.sv|regfile.sv|riscv_32_instr_decoder.sv|simtop.sv|top.sv|
+!i113 0
+Z10 o-pedanticerrors -lint -hazards -source -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vcpu
+R2
+R3
+!i10b 1
+!s100 2meeClhl^Gbd>aWhfd7RT0
+R4
+I<E4Me:oSj@[KPV13`9P`g1
+R5
+S1
+R0
+R6
+8cpu.sv
+Fcpu.sv
+!i122 8
+L0 3 156
+R7
+r1
+!s85 0
+31
+R8
+Z11 !s107 top.sv|simtop.sv|riscv_32_instr_decoder.sv|regfile.sv|lut.sv|hexdriver.sv|ctrl_unit.sv|cpu.sv|alu.sv|
+R9
+!i113 0
+R10
+R1
+vctrl_unit
+R2
+R3
+!i10b 1
+!s100 PIkLBMnlVWffmnNLHB5VS1
+R4
+I=<?oFgdPn4bLfeGX0jHXd3
+R5
+S1
+R0
+R6
+8ctrl_unit.sv
+Fctrl_unit.sv
+!i122 8
+L0 11 116
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 0
+R10
+R1
+vhexdriver
+R2
+R3
+!i10b 1
+!s100 bNI]7EdDHAUW;OZ_P39hX3
+R4
+ILHCVJ]hmO7A3A;j`CA97z0
+R5
+S1
+R0
+R6
+8hexdriver.sv
+Fhexdriver.sv
+!i122 8
+L0 1 26
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 0
+R10
+R1
+vregfile
+R2
+R3
+!i10b 1
+!s100 ?^aWIU5R`P?QnPdE@RGJe0
+R4
+IRDSL9iG2]ma^CoM2hhRo:0
+R5
+S1
+R0
+R6
+8regfile.sv
+Fregfile.sv
+!i122 8
+L0 3 38
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 0
+R10
+R1
+vriscv_32_instr_decoder
+R2
+R3
+!i10b 1
+!s100 ZFLWM^n;JJPaTe=FTn2HV3
+R4
+ID:JlEW6AEE4>A8A56TXaP3
+R5
+S1
+R0
+R6
+8riscv_32_instr_decoder.sv
+Friscv_32_instr_decoder.sv
+!i122 8
+L0 7 40
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 0
+R10
+R1
+vsimtop
+R2
+R3
+!i10b 1
+!s100 JF_53j5N`hVW7OCHz<W9T2
+R4
+IQz6D;oVQCGgH_3T:=j=e=1
+R5
+S1
+R0
+R6
+8simtop.sv
+Fsimtop.sv
+!i122 8
+L0 1 80
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 0
+R10
+R1
+vtop
+R2
+R3
+!i10b 1
+!s100 WkCNjWNNhQD5>NmOlnc>L1
+R4
+IR9jS7f[CzEk5IV]CX;N;k2
+R5
+S1
+R0
+R6
+8top.sv
+Ftop.sv
+!i122 8
+L0 7 114
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 0
+R10
+R1
