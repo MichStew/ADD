@@ -39,23 +39,23 @@ module ctrl_unit(
 
                 if (funct7 == 7'b0000000) begin
                     if      (funct3 == 3'b000) aluop_EX = 4'b0011; // ADD
-                    else if (funct3 == 3'b100) aluop_EX = 4'b0001; // XOR
+                    else if (funct3 == 3'b100) aluop_EX = 4'b0010; // XOR
                     else if (funct3 == 3'b110) aluop_EX = 4'b0000; // OR
                     else if (funct3 == 3'b111) aluop_EX = 4'b0000; // AND
-                    else if (funct3 == 3'b001) aluop_EX = 4'b0101; // SLL
-                    else if (funct3 == 3'b101) aluop_EX = 4'b0110; // SRL
-                    else if (funct3 == 3'b010) aluop_EX = 4'b1000; // SLT
-                    else if (funct3 == 3'b011) aluop_EX = 4'b1001; // SLTU
+                    else if (funct3 == 3'b001) aluop_EX = 4'b1000; // SLL
+                    else if (funct3 == 3'b101) aluop_EX = 4'b1001; // SRL
+                    else if (funct3 == 3'b010) aluop_EX = 4'b1100; // SLT
+                    else if (funct3 == 3'b011) aluop_EX = 4'b1101; // SLTU
                 end
                 else if (funct7 == 7'b0100000) begin
                     if (funct3 == 3'b000) aluop_EX = 4'b0100; // SUB
-                    else if (funct3 == 3'b101) aluop_EX = 4'b0111; // SRA
+                    else if (funct3 == 3'b101) aluop_EX = 4'b1010; // SRA
                 end
                 else if (funct7 == 7'b0000001) begin
-                    if      (funct3 == 3'b000) aluop_EX = 4'b1010; // MUL
-                    else if (funct3 == 3'b001) aluop_EX = 4'b1011; // MULH
-                    else if (funct3 == 3'b010) aluop_EX = 4'b1100; // MULHSU
-                    else if (funct3 == 3'b011) aluop_EX = 4'b1101; // MULHU
+                    if      (funct3 == 3'b000) aluop_EX = 4'b0101; // MUL
+                    else if (funct3 == 3'b001) aluop_EX = 4'b0110; // MULH
+                    else if (funct3 == 3'b010) aluop_EX = 4'b0111; // MULHSU
+                    else if (funct3 == 3'b011) aluop_EX = 4'b0111; // MULHU
                     else if (funct3 == 3'b100) aluop_EX = 4'b1110; // DIV
                     else if (funct3 == 3'b101) aluop_EX = 4'b1110; // DIVU
                     else if (funct3 == 3'b110) aluop_EX = 4'b1111; // REM
@@ -71,11 +71,11 @@ module ctrl_unit(
                 GPIO_we     = 1'b0;
 
                 if      (funct3 == 3'b000) aluop_EX = 4'b0011; // ADDI
-                else if (funct3 == 3'b001) aluop_EX = 4'b0101; // SLLI
-                else if (funct3 == 3'b011) aluop_EX = 4'b1001; // SLTIU
-                else if (funct3 == 3'b100) aluop_EX = 4'b0001; // XORI
-                else if (funct3 == 3'b101) aluop_EX = 4'b0110; // SRLI
-                else if (funct3 == 3'b110) aluop_EX = 4'b0010; // ORI
+                else if (funct3 == 3'b001) aluop_EX = 4'b1000; // SLLI
+                else if (funct3 == 3'b011) aluop_EX = 4'b1101; // SLTIU
+                else if (funct3 == 3'b100) aluop_EX = 4'b0010; // XORI
+                else if (funct3 == 3'b101) aluop_EX = 4'b1001; // SRLI
+                else if (funct3 == 3'b110) aluop_EX = 4'b0001; // ORI
                 else if (funct3 == 3'b111) aluop_EX = 4'b0000; // ANDI
             end
 

@@ -1,5 +1,5 @@
 Fitter report for DE2_115
-Fri Oct 17 18:06:09 2025
+Sun Oct 19 15:27:34 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -68,7 +68,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Fri Oct 17 18:06:09 2025           ;
+; Fitter Status                      ; Successful - Sun Oct 19 15:27:34 2025           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; DE2_115                                         ;
 ; Top-level Entity Name              ; top                                             ;
@@ -150,15 +150,15 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 24          ;
+; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
-; Maximum used               ; 8           ;
+; Average used               ; 1.03        ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.2%      ;
+;     Processors 2-16        ;   0.2%      ;
 +----------------------------+-------------+
 
 
@@ -200,7 +200,7 @@ refer to the applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in /acct/mcs46/Downloads/lab_riu/DE2_115.pin.
+The pin-out file can be found in /acct/mcs46/ADD/Downloads/lab_riu/DE2_115.pin.
 
 
 +---------------------------------------------------------------------------+
@@ -1991,7 +1991,7 @@ Note: This table only shows the top 1 path(s) that have the largest delay added 
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (119006): Selected device EP4CE115F29C7 for design "DE2_115"
 Info (21076): High junction temperature operating condition is not set. Assuming a default value of '85'.
 Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
@@ -2024,12 +2024,12 @@ Info (332111): Found 3 clocks
     Info (332111):   20.000    CLOCK2_50
     Info (332111):   20.000    CLOCK3_50
     Info (332111):   20.000     CLOCK_50
-Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN Y2 (CLK2, DIFFCLK_1p)) File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 10
+Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN Y2 (CLK2, DIFFCLK_1p)) File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 10
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -2043,49 +2043,49 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.05 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.04 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Warning (169177): 25 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
-    Info (169178): Pin CLOCK2_50 uses I/O standard 3.3-V LVTTL at AG14 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 11
-    Info (169178): Pin CLOCK3_50 uses I/O standard 3.3-V LVTTL at AG15 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 12
-    Info (169178): Pin KEY[1] uses I/O standard 3.3-V LVTTL at M21 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 19
-    Info (169178): Pin KEY[2] uses I/O standard 3.3-V LVTTL at N21 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 19
-    Info (169178): Pin KEY[3] uses I/O standard 3.3-V LVTTL at R24 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 19
-    Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at Y2 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 10
-    Info (169178): Pin SW[0] uses I/O standard 3.3-V LVTTL at AB28 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin KEY[0] uses I/O standard 3.3-V LVTTL at M23 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 19
-    Info (169178): Pin SW[1] uses I/O standard 3.3-V LVTTL at AC28 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[2] uses I/O standard 3.3-V LVTTL at AC27 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[3] uses I/O standard 3.3-V LVTTL at AD27 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[4] uses I/O standard 3.3-V LVTTL at AB27 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[5] uses I/O standard 3.3-V LVTTL at AC26 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[6] uses I/O standard 3.3-V LVTTL at AD26 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[7] uses I/O standard 3.3-V LVTTL at AB26 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[8] uses I/O standard 3.3-V LVTTL at AC25 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[9] uses I/O standard 3.3-V LVTTL at AB25 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[10] uses I/O standard 3.3-V LVTTL at AC24 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[11] uses I/O standard 3.3-V LVTTL at AB24 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[12] uses I/O standard 3.3-V LVTTL at AB23 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[13] uses I/O standard 3.3-V LVTTL at AA24 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[14] uses I/O standard 3.3-V LVTTL at AA23 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[15] uses I/O standard 3.3-V LVTTL at AA22 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[16] uses I/O standard 3.3-V LVTTL at Y24 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-    Info (169178): Pin SW[17] uses I/O standard 3.3-V LVTTL at Y23 File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 22
-Info (144001): Generated suppressed messages file /acct/mcs46/Downloads/lab_riu/DE2_115.fit.smsg
+    Info (169178): Pin CLOCK2_50 uses I/O standard 3.3-V LVTTL at AG14 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 11
+    Info (169178): Pin CLOCK3_50 uses I/O standard 3.3-V LVTTL at AG15 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 12
+    Info (169178): Pin KEY[1] uses I/O standard 3.3-V LVTTL at M21 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 19
+    Info (169178): Pin KEY[2] uses I/O standard 3.3-V LVTTL at N21 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 19
+    Info (169178): Pin KEY[3] uses I/O standard 3.3-V LVTTL at R24 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 19
+    Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at Y2 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 10
+    Info (169178): Pin SW[0] uses I/O standard 3.3-V LVTTL at AB28 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin KEY[0] uses I/O standard 3.3-V LVTTL at M23 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 19
+    Info (169178): Pin SW[1] uses I/O standard 3.3-V LVTTL at AC28 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[2] uses I/O standard 3.3-V LVTTL at AC27 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[3] uses I/O standard 3.3-V LVTTL at AD27 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[4] uses I/O standard 3.3-V LVTTL at AB27 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[5] uses I/O standard 3.3-V LVTTL at AC26 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[6] uses I/O standard 3.3-V LVTTL at AD26 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[7] uses I/O standard 3.3-V LVTTL at AB26 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[8] uses I/O standard 3.3-V LVTTL at AC25 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[9] uses I/O standard 3.3-V LVTTL at AB25 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[10] uses I/O standard 3.3-V LVTTL at AC24 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[11] uses I/O standard 3.3-V LVTTL at AB24 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[12] uses I/O standard 3.3-V LVTTL at AB23 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[13] uses I/O standard 3.3-V LVTTL at AA24 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[14] uses I/O standard 3.3-V LVTTL at AA23 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[15] uses I/O standard 3.3-V LVTTL at AA22 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[16] uses I/O standard 3.3-V LVTTL at Y24 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+    Info (169178): Pin SW[17] uses I/O standard 3.3-V LVTTL at Y23 File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 22
+Info (144001): Generated suppressed messages file /acct/mcs46/ADD/Downloads/lab_riu/DE2_115.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 2007 megabytes
-    Info: Processing ended: Fri Oct 17 18:06:10 2025
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Peak virtual memory: 2703 megabytes
+    Info: Processing ended: Sun Oct 19 15:27:34 2025
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:11
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in /acct/mcs46/Downloads/lab_riu/DE2_115.fit.smsg.
+The suppressed messages can be found in /acct/mcs46/ADD/Downloads/lab_riu/DE2_115.fit.smsg.
 
 

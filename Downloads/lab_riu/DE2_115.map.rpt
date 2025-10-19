@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE2_115
-Fri Oct 17 18:06:02 2025
+Sun Oct 19 15:27:27 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -22,10 +22,11 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
  14. Parameter Settings for Inferred Entity Instance: cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0
  15. altsyncram Parameter Settings by Entity Instance
  16. Port Connectivity Checks: "cpu:my_cpu|alu:alu_inst"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
- 20. Analysis & Synthesis Suppressed Messages
+ 17. Port Connectivity Checks: "cpu:my_cpu"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -51,7 +52,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Oct 17 18:06:02 2025           ;
+; Analysis & Synthesis Status        ; Successful - Sun Oct 19 15:27:27 2025           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; DE2_115                                         ;
 ; Top-level Entity Name              ; top                                             ;
@@ -159,15 +160,16 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 24          ;
+; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 8           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -176,14 +178,14 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                          ; Library ;
 +----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------+---------+
-; top.sv                           ; yes             ; User SystemVerilog HDL File        ; /acct/mcs46/Downloads/lab_riu/top.sv                                                  ;         ;
-; hexdriver.sv                     ; yes             ; User SystemVerilog HDL File        ; /acct/mcs46/Downloads/lab_riu/hexdriver.sv                                            ;         ;
-; cpu.sv                           ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/Downloads/lab_riu/cpu.sv                                                  ;         ;
-; instmem.dat                      ; yes             ; Auto-Found Unspecified File        ; /acct/mcs46/Downloads/lab_riu/instmem.dat                                             ;         ;
-; riscv_32_instr_decoder.sv        ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/Downloads/lab_riu/riscv_32_instr_decoder.sv                               ;         ;
-; ctrl_unit.sv                     ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/Downloads/lab_riu/ctrl_unit.sv                                            ;         ;
-; regfile.sv                       ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/Downloads/lab_riu/regfile.sv                                              ;         ;
-; alu.sv                           ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/Downloads/lab_riu/alu.sv                                                  ;         ;
+; top.sv                           ; yes             ; User SystemVerilog HDL File        ; /acct/mcs46/ADD/Downloads/lab_riu/top.sv                                              ;         ;
+; hexdriver.sv                     ; yes             ; User SystemVerilog HDL File        ; /acct/mcs46/ADD/Downloads/lab_riu/hexdriver.sv                                        ;         ;
+; cpu.sv                           ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/ADD/Downloads/lab_riu/cpu.sv                                              ;         ;
+; instmem.dat                      ; yes             ; Auto-Found Unspecified File        ; /acct/mcs46/ADD/Downloads/lab_riu/instmem.dat                                         ;         ;
+; riscv_32_instr_decoder.sv        ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/ADD/Downloads/lab_riu/riscv_32_instr_decoder.sv                           ;         ;
+; ctrl_unit.sv                     ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/ADD/Downloads/lab_riu/ctrl_unit.sv                                        ;         ;
+; regfile.sv                       ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/ADD/Downloads/lab_riu/regfile.sv                                          ;         ;
+; alu.sv                           ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/ADD/Downloads/lab_riu/alu.sv                                              ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -193,7 +195,7 @@ refer to the applicable agreement for further details.
 ; altrom.inc                       ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
 ; altram.inc                       ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_mcc1.tdf           ; yes             ; Auto-Generated Megafunction        ; /acct/mcs46/Downloads/lab_riu/db/altsyncram_mcc1.tdf                                  ;         ;
+; db/altsyncram_mcc1.tdf           ; yes             ; Auto-Generated Megafunction        ; /acct/mcs46/ADD/Downloads/lab_riu/db/altsyncram_mcc1.tdf                              ;         ;
 +----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------+---------+
 
 
@@ -459,6 +461,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:my_cpu"                                                                                                                                                                           ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                             ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; gpio_in ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (18 bits) it drives.  The 14 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
@@ -501,46 +512,43 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Fri Oct 17 18:05:54 2025
+    Info: Processing started: Sun Oct 19 15:27:21 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE2_115 -c DE2_115
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file top.sv
-    Info (12023): Found entity 1: top File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 7
+    Info (12023): Found entity 1: top File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file hexdriver.sv
-    Info (12023): Found entity 1: hexdriver File: /acct/mcs46/Downloads/lab_riu/hexdriver.sv Line: 1
+    Info (12023): Found entity 1: hexdriver File: /acct/mcs46/ADD/Downloads/lab_riu/hexdriver.sv Line: 1
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Warning (10858): Verilog HDL warning at top.sv(45): object ledclk used but never assigned File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 45
-Warning (10230): Verilog HDL assignment warning at top.sv(83): truncated value with size 26 to match size of target (24) File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 83
-Warning (10230): Verilog HDL assignment warning at top.sv(94): truncated value with size 32 to match size of target (24) File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 94
-Warning (10034): Output port "LEDG" at top.sv(15) has no driver File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 15
-Warning (10034): Output port "LEDR" at top.sv(16) has no driver File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-Info (12128): Elaborating entity "hexdriver" for hierarchy "hexdriver:hex" File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 59
+Warning (10858): Verilog HDL warning at top.sv(45): object ledclk used but never assigned File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 45
+Warning (10230): Verilog HDL assignment warning at top.sv(83): truncated value with size 26 to match size of target (24) File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 83
+Warning (10230): Verilog HDL assignment warning at top.sv(94): truncated value with size 32 to match size of target (24) File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 94
+Warning (10034): Output port "LEDG" at top.sv(15) has no driver File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 15
+Warning (10034): Output port "LEDR" at top.sv(16) has no driver File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+Info (12128): Elaborating entity "hexdriver" for hierarchy "hexdriver:hex" File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 59
 Warning (12125): Using design file cpu.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: cpu File: /acct/mcs46/Downloads/lab_riu/cpu.sv Line: 3
-Info (12128): Elaborating entity "cpu" for hierarchy "cpu:my_cpu" File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 74
-Warning (10850): Verilog HDL warning at cpu.sv(64): number of words (4) in memory file does not match the number of elements in the address range [0:4095] File: /acct/mcs46/Downloads/lab_riu/cpu.sv Line: 64
-Warning (10030): Net "instruction_mem.data_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/Downloads/lab_riu/cpu.sv Line: 61
-Warning (10030): Net "instruction_mem.waddr_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/Downloads/lab_riu/cpu.sv Line: 61
-Warning (10030): Net "instruction_mem.we_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/Downloads/lab_riu/cpu.sv Line: 61
+    Info (12023): Found entity 1: cpu File: /acct/mcs46/ADD/Downloads/lab_riu/cpu.sv Line: 3
+Info (12128): Elaborating entity "cpu" for hierarchy "cpu:my_cpu" File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 74
+Warning (10850): Verilog HDL warning at cpu.sv(64): number of words (4) in memory file does not match the number of elements in the address range [0:4095] File: /acct/mcs46/ADD/Downloads/lab_riu/cpu.sv Line: 64
+Warning (10030): Net "instruction_mem.data_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/ADD/Downloads/lab_riu/cpu.sv Line: 61
+Warning (10030): Net "instruction_mem.waddr_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/ADD/Downloads/lab_riu/cpu.sv Line: 61
+Warning (10030): Net "instruction_mem.we_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/ADD/Downloads/lab_riu/cpu.sv Line: 61
 Warning (12125): Using design file riscv_32_instr_decoder.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: riscv_32_instr_decoder File: /acct/mcs46/Downloads/lab_riu/riscv_32_instr_decoder.sv Line: 7
-Info (12128): Elaborating entity "riscv_32_instr_decoder" for hierarchy "cpu:my_cpu|riscv_32_instr_decoder:decode" File: /acct/mcs46/Downloads/lab_riu/cpu.sv Line: 90
+    Info (12023): Found entity 1: riscv_32_instr_decoder File: /acct/mcs46/ADD/Downloads/lab_riu/riscv_32_instr_decoder.sv Line: 7
+Info (12128): Elaborating entity "riscv_32_instr_decoder" for hierarchy "cpu:my_cpu|riscv_32_instr_decoder:decode" File: /acct/mcs46/ADD/Downloads/lab_riu/cpu.sv Line: 90
 Warning (12125): Using design file ctrl_unit.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ctrl_unit File: /acct/mcs46/Downloads/lab_riu/ctrl_unit.sv Line: 11
-Info (12128): Elaborating entity "ctrl_unit" for hierarchy "cpu:my_cpu|ctrl_unit:ctrl" File: /acct/mcs46/Downloads/lab_riu/cpu.sv Line: 106
+    Info (12023): Found entity 1: ctrl_unit File: /acct/mcs46/ADD/Downloads/lab_riu/ctrl_unit.sv Line: 11
+Info (12128): Elaborating entity "ctrl_unit" for hierarchy "cpu:my_cpu|ctrl_unit:ctrl" File: /acct/mcs46/ADD/Downloads/lab_riu/cpu.sv Line: 106
 Warning (12125): Using design file regfile.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: regfile File: /acct/mcs46/Downloads/lab_riu/regfile.sv Line: 3
-Info (12128): Elaborating entity "regfile" for hierarchy "cpu:my_cpu|regfile:rf" File: /acct/mcs46/Downloads/lab_riu/cpu.sv Line: 117
-Warning (10175): Verilog HDL warning at regfile.sv(27): ignoring unsupported system task File: /acct/mcs46/Downloads/lab_riu/regfile.sv Line: 27
-Warning (10175): Verilog HDL warning at regfile.sv(28): ignoring unsupported system task File: /acct/mcs46/Downloads/lab_riu/regfile.sv Line: 28
-Warning (10175): Verilog HDL warning at regfile.sv(29): ignoring unsupported system task File: /acct/mcs46/Downloads/lab_riu/regfile.sv Line: 29
+    Info (12023): Found entity 1: regfile File: /acct/mcs46/ADD/Downloads/lab_riu/regfile.sv Line: 3
+Info (12128): Elaborating entity "regfile" for hierarchy "cpu:my_cpu|regfile:rf" File: /acct/mcs46/ADD/Downloads/lab_riu/cpu.sv Line: 117
 Warning (12125): Using design file alu.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: alu File: /acct/mcs46/Downloads/lab_riu/alu.sv Line: 7
-Info (12128): Elaborating entity "alu" for hierarchy "cpu:my_cpu|alu:alu_inst" File: /acct/mcs46/Downloads/lab_riu/cpu.sv Line: 125
-Warning (10036): Verilog HDL or VHDL warning at alu.sv(15): object "mullu" assigned a value but never read File: /acct/mcs46/Downloads/lab_riu/alu.sv Line: 15
+    Info (12023): Found entity 1: alu File: /acct/mcs46/ADD/Downloads/lab_riu/alu.sv Line: 7
+Info (12128): Elaborating entity "alu" for hierarchy "cpu:my_cpu|alu:alu_inst" File: /acct/mcs46/ADD/Downloads/lab_riu/cpu.sv Line: 125
+Warning (10036): Verilog HDL or VHDL warning at alu.sv(15): object "mullu" assigned a value but never read File: /acct/mcs46/ADD/Downloads/lab_riu/alu.sv Line: 15
 Warning (276020): Inferred RAM node "cpu:my_cpu|regfile:rf|mem_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/acct/mcs46/Downloads/lab_riu/db/DE2_115.ram0_cpu_1987c.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/acct/mcs46/ADD/Downloads/lab_riu/db/DE2_115.ram0_cpu_1987c.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "cpu:my_cpu|regfile:rf|mem_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -574,61 +582,62 @@ Info (12133): Instantiated megafunction "cpu:my_cpu|regfile:rf|altsyncram:mem_rt
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_mcc1.tdf
-    Info (12023): Found entity 1: altsyncram_mcc1 File: /acct/mcs46/Downloads/lab_riu/db/altsyncram_mcc1.tdf Line: 27
+    Info (12023): Found entity 1: altsyncram_mcc1 File: /acct/mcs46/ADD/Downloads/lab_riu/db/altsyncram_mcc1.tdf Line: 27
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDG[0]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[1]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[2]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[3]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[4]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[5]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[6]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[7]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[8]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[10]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[11]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[12]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[13]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[14]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[15]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[16]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[17]" is stuck at GND File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 15
+    Warning (13410): Pin "LEDG[1]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 15
+    Warning (13410): Pin "LEDG[2]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 15
+    Warning (13410): Pin "LEDG[3]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 15
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 15
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 15
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 15
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 15
+    Warning (13410): Pin "LEDG[8]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 15
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[10]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[11]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[12]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[13]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[14]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[15]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[16]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
+    Warning (13410): Pin "LEDR[17]" is stuck at GND File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 16
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 20 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file /acct/mcs46/Downloads/lab_riu/DE2_115.map.smsg
+Info (144001): Generated suppressed messages file /acct/mcs46/ADD/Downloads/lab_riu/DE2_115.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 5 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK2_50" File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 11
-    Warning (15610): No output dependent on input pin "CLOCK3_50" File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 12
-    Warning (15610): No output dependent on input pin "KEY[1]" File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 19
-    Warning (15610): No output dependent on input pin "KEY[2]" File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 19
-    Warning (15610): No output dependent on input pin "KEY[3]" File: /acct/mcs46/Downloads/lab_riu/top.sv Line: 19
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 11
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 12
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 19
+    Warning (15610): No output dependent on input pin "KEY[2]" File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 19
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /acct/mcs46/ADD/Downloads/lab_riu/top.sv Line: 19
 Info (21057): Implemented 312 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 25 input pins
     Info (21059): Implemented 83 output pins
     Info (21061): Implemented 172 logic cells
     Info (21064): Implemented 32 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 55 warnings
-    Info: Peak virtual memory: 1023 megabytes
-    Info: Processing ended: Fri Oct 17 18:06:02 2025
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:16
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 53 warnings
+    Info: Peak virtual memory: 1090 megabytes
+    Info: Processing ended: Sun Oct 19 15:27:27 2025
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:12
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /acct/mcs46/Downloads/lab_riu/DE2_115.map.smsg.
+The suppressed messages can be found in /acct/mcs46/ADD/Downloads/lab_riu/DE2_115.map.smsg.
 
 
