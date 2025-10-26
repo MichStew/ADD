@@ -1,162 +1,154 @@
-// haley lind & Michael Stewart csce611 oct15 2025
-// needs to be named the same as the file 
-module cpu(
-    input logic clk, 
-    input logic res, // named res, needs to match below 
-    input logic [31:0] gpio_in,
-    output logic [31:0] gpio_out
+// Haley Lind & Michael Stewart 
+// cpu file 
+module cpu ( 
+  input logic clk, 
+  input logic rst, //active low reset 
+  input logic [31:0] gpio_in, // 32 bit, needs padded in top 
+  output logic [31:0] gpio_out
 );
-
-    // 3 stages ... 1. fetch, 2. execute, 3. writeback
-
-    // read an assembled riscv program via instmem.dat (this is for testing) and reset the CPU
-    // 
-    
-    
-    // [PC] -> [Instruction Memory] -> [Instruction Register]
-
-    /* FETCH STAGE */
-    // need to declare instruction fields still 
-    logic [6:0] opcode; 
-    logic [2:0] funct3;
-    logic [6:0] funct7;
-    logic [4:0] rs1, rs2, rd;
-    logic [11:0] imm12;
-    logic [19:0] imm20;
-    
-    //control signals
-    logic [1:0] alusrc_EX;
-    logic [0:0] GPIO_we; 
-    logic [0:0] regwrite_EX;
-    logic [1:0] regsel_EX;
-    logic [3:0] aluop_EX;
-    
-    //register file signals 
-    logic [31:0] readdata1, readdata2; 
-    logic [31:0] writedata;
-    
-    // ALU signals 
-    logic [31:0] alu_A, alu_B, alu_result; 
-    logic alu_zero;
-    
-    //GPIO registers
-    logic [31:0] gpio_out_reg;
-    assign gpio_out = gpio_out_reg; 
-    
-    
-    logic [31:0] pc_F, pc_next_F;
-    logic [31:0] instruction_F;
-
-    // instruction memory
-        // also where PC might live? based on CPU diagram
-        // logic 31 instruction_mem 4095:0 
-        // logic 31 instruction_ex 
-        // instr_mem imem (
-    //     .clk (clk),
-    //     .addr(pc_F),
-    //     .data(instruction_F)        // valid next cycle
-    // );
-
-    // "initializing instruction memory" from slides
-    logic [31:0] instruction_mem [4095:0];
-    logic [31:0] instruction_EX;
-    //needs to follow naming of compiled rars program 
-    initial $readmemh("instmem.dat", instruction_mem);
-
-    always_ff @(posedge clk)
-        if (res) begin
-        instruction_EX <= 32'b0;
-        pc_F <= 32'b0;
-        end else begin
-        instruction_EX <= instruction_mem[pc_F[11:2]];
-        pc_F <= pc_F + 32'd4;
-        end
-
-	riscv_32_instr_decoder decode (
-
-            .full(instruction_EX),
-            .opcode(opcode),
-            
-            .funct3(funct3),
-            .funct7(funct7),
-            
-            .rs1(rs1),
-            .rs2(rs2),
-            .rd(rd),
-
-            .imm12(imm12),
-            .imm20(imm20)
-            // .type_of_instruction(type_of_instruction) // no mas
-    );
-
-    //We wire the control unit to above wires declared in "Control unit wiring" section
-    ctrl_unit ctrl (
-            .op(opcode),
-            .funct3(funct3),
-            .funct7(funct7),
-            .imm12(imm12),
-            .imm20(imm20), 
-
-            /* outputs */
-            .alusrc_EX(alusrc_EX),     
-            .GPIO_we(GPIO_we),
-            .regwrite_EX(regwrite_EX),
-            .regsel_EX(regsel_EX), // 1 bit
-            .aluop_EX(aluop_EX) // isn't that four bits*/
-    );
-    
-    regfile rf (
+// all the junk we need for this cpu to finally freaking work 
+  logic [31:0] PC_FETCH;
+  logic [31:0] instruction_EX;
+  logic [6:0] opcode_EX; 
+  logic [2:0] funct3_EX; 
+  logic [6:0] funct7_EX;
+  logic [11:0] csr_EX;
+  logic [4:0] rs1_EX, rs2_EX, rd_EX; 
+  logic [11:0] imm12_EX; 
+  logic [31:0] imm20_EX;
+  
+  logic [3:0] aluop_EX; 
+  logic alusrc_EX; 
+  logic [1:0] regsel_EX, regsel_WB; 
+  logic regwrite_EX, regwrite_WB;
+  logic gpio_we; 
+  
+  logic [31:0] readdata1; 
+  logic [31:0] readdata2; 
+  logic [31:0] writedata_WB;
+  logic [4:0] rd_WB;
+  
+  logic [31:0] A, B; // used in the alu 
+  logic [31:0] R_EX, R_WB; // read execute and write 
+  logic zero; 
+  
+  logic [31:0] imm_extended; 
+  logic [31:0] shiftE;
+  logic [31:0] shifty; 
+  logic pr;
+  logic [31:0] imm20_WB;
+  
+  // assigns needed for this to work properly   
+  assign A = readdata1; 
+  assign shiftE = {{20{imm12_EX[11]}}, imm12_EX};
+  assign shifty = {27'b0, imm12_EX[4:0]}; 
+  assign pr = (rd_WB == 5'd0) ? 1'b0 : regwrite_WB;
+  
+  always_ff @(posedge clk) begin
+    if (!rst) begin 
+      PC_FETCH <= 32'd0; // we want decimal, and also to read after the clk so we dont have timing issue 
+    end else begin 
+      PC_FETCH <= PC_FETCH + 1;
+    end 
+  end 
+  
+  logic [31:0] imem[0:255]; //32 bits of 256 bit memory
+  assign instruction_EX = imem[PC_FETCH];
+  
+  // was having issues here for a LONG time
+  // read file 
+  initial begin 
+    $readmemh("./instmem.dat",imem);
+  end 
+  
+  // instantiate decoder for instruction 
+  decoder mydecode (
+    .instruction(instruction_EX),
+    .opcode(opcode_EX),
+    .funct3(funct3_EX),
+    .funct7(funct7_EX),
+    .csr(csr_EX), 
+    .rs1(rs1_EX),
+    .rs2(rs2_EX),
+    .rd(rd_EX),
+    .imm12(imm12_EX),
+    .imm20(imm20_EX)
+); 
+  // instantiate control unit 
+  control_unit runner ( 
+  .opcode(opcode_EX),
+  .funct3(funct3_EX),
+  .funct7(funct7_EX),
+  .csr(csr_EX),
+  .aluop(aluop_EX),
+  .alusrc(alusrc_EX),
+  .regsel(regsel_EX),
+  .regwrite(regwrite_EX), 
+  .gpio_we(gpio_we)
+);
+  // instantiate regfile 
+  regfile rf ( 
     .clk(clk),
-    .we(regwrite_EX),
-    .readaddr1(rs1),
-    .readaddr2(rs2),
-    .writeaddr(rd),
-    .writedata(writedata),
+    .we(pr), 
+    .readaddr1(rs1_EX), 
+    .readaddr2(rs2_EX), 
+    .writeaddr(rd_WB), 
+    .writedata(writedata_WB), 
     .readdata1(readdata1),
     .readdata2(readdata2)
-    );
-    
-    alu alu_inst ( 
-    .A(alu_A),
-    .B(alu_B),
-    .op(aluop_EX),
-    .R(alu_result),
-    .zero(alu_zero)
-    );
-    
-    assign alu_A = readdata1;
-    logic [31:0] gpio_in_sync;
-    always_ff @(posedge clk) gpio_in_sync <= gpio_in;
-
-    always_comb begin
-    	case(alusrc_EX)
-    		2'b00: alu_B = readdata2; // R type use rs2
-    		2'b01: alu_B = {{20{imm12[11]}}, imm12}; // I type 
-    		2'b10: alu_B = {imm20, 12'b0};
-    	default: alu_B = 32'b0;
-    	endcase
-    end 
-    
-    //Select what data to write back to register file 
-    always_comb begin 
-    	case(regsel_EX)
-    		2'b00: writedata = 32'b0; // Default 
-    		2'b01: writedata = {imm20, 12'b0}; // write immediate 
-    		2'b10: writedata = alu_result;  // Normal: write ALU result 
-    		2'b11: writedata = gpio_in_sync;
- // CSRRW read: write GPIO input 
-    		default: writedata = 32'b0;
-    	endcase
+);
+  always_comb begin 
+    if(alusrc_EX) begin 
+      if(aluop_EX == 4'b1000 || aluop_EX == 4'b1001 || aluop_EX == 4'b1010) begin 
+        B = shifty;
+      end else begin 
+        B = shiftE; 
+      end 
+    end else begin 
+      B = readdata2;
     end
-    
-   // GPIO output register f00 
-   always_ff @(posedge clk) begin 
-   	if (res) begin
-   		gpio_out_reg <= 32'b0;
-   	end else if (GPIO_we) begin 
-   		gpio_out_reg <= readdata1; // write rs1 to GPIO
-   	end
-   end 
-
-    		 
+  end 
+  
+  // instantiate the ALU that we were given 
+  alu go ( 
+  .A(A),
+  .B(B),
+  .op(aluop_EX),
+  .R(R_EX),
+  .zero(zero) 
+);
+  always_ff @(posedge clk) begin 
+    if (!rst) begin 
+      R_WB <= 32'd0;
+      rd_WB <= 5'd0;
+      regwrite_WB <= 1'b0;
+      regsel_WB <= 2'b00; 
+      imm20_WB <= 32'd0;
+    end else begin 
+      R_WB <= R_EX;
+      rd_WB <= rd_EX;
+      regwrite_WB <= regwrite_EX; 
+      regsel_WB <= regsel_EX;
+      imm20_WB <= imm20_EX;
+    end
+  end 
+  
+  //writeback mux, like the diagram from the test lol 
+  always_comb begin 
+    case (regsel_WB) 
+      2'b00 : writedata_WB = gpio_in;
+      2'b01 : writedata_WB = imm20_WB;
+      2'b10 : writedata_WB = R_WB; 
+      default : writedata_WB = 32'd0; 
+    endcase 
+  end 
+  
+  // if reset is pressed hex should display all 0 
+  always_ff @(posedge clk) begin 
+    if (!rst) begin 
+      gpio_out <= 32'd0; 
+    end else if (gpio_we) begin 
+      gpio_out <= readdata1; 
+    end 
+  end 
 endmodule

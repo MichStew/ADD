@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE2_115
-Sun Oct 19 18:12:35 2025
+Sun Oct 26 18:05:56 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -13,28 +13,21 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. Analysis & Synthesis DSP Block Usage Summary
- 10. Logic Cells Representing Combinational Loops
- 11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Registers Added for RAM Pass-Through Logic
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Source assignments for cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0|altsyncram_mcc1:auto_generated
- 17. Source assignments for cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_1|altsyncram_mcc1:auto_generated
- 18. Parameter Settings for Inferred Entity Instance: cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0
- 19. Parameter Settings for Inferred Entity Instance: cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_1
- 20. Parameter Settings for Inferred Entity Instance: cpu:my_cpu|alu:alu_inst|lpm_mult:Mult1
- 21. Parameter Settings for Inferred Entity Instance: cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0
- 22. altsyncram Parameter Settings by Entity Instance
- 23. lpm_mult Parameter Settings by Entity Instance
- 24. Port Connectivity Checks: "cpu:my_cpu|alu:alu_inst"
- 25. Port Connectivity Checks: "cpu:my_cpu"
- 26. Post-Synthesis Netlist Statistics for Top Partition
- 27. Elapsed Time Per Partition
- 28. Analysis & Synthesis Messages
- 29. Analysis & Synthesis Suppressed Messages
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for Inferred Entity Instance: cpu:mycpu|alu:go|lpm_mult:Mult1
+ 13. Parameter Settings for Inferred Entity Instance: cpu:mycpu|alu:go|lpm_mult:Mult0
+ 14. Parameter Settings for Inferred Entity Instance: cpu:mycpu|alu:go|lpm_divide:Div0
+ 15. Parameter Settings for Inferred Entity Instance: cpu:mycpu|alu:go|lpm_divide:Mod0
+ 16. lpm_mult Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "cpu:mycpu|alu:go"
+ 18. Port Connectivity Checks: "cpu:mycpu"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+ 22. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -60,18 +53,18 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct 19 18:12:34 2025           ;
+; Analysis & Synthesis Status        ; Successful - Sun Oct 26 18:05:56 2025           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                      ; DE2_115                                         ;
 ; Top-level Entity Name              ; top                                             ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 1,556                                           ;
-;     Total combinational functions  ; 1,487                                           ;
-;     Dedicated logic registers      ; 171                                             ;
-; Total registers                    ; 171                                             ;
-; Total pins                         ; 108                                             ;
+; Total logic elements               ; 4,799                                           ;
+;     Total combinational functions  ; 4,351                                           ;
+;     Dedicated logic registers      ; 578                                             ;
+; Total registers                    ; 578                                             ;
+; Total pins                         ; 81                                              ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 2,048                                           ;
+; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 16                                              ;
 ; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
@@ -176,9 +169,9 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
 ;     Processor 7            ;   0.0%      ;
@@ -186,37 +179,37 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                    ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                          ; Library ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------+---------+
-; top.sv                           ; yes             ; User SystemVerilog HDL File        ; /acct/mcs46/lab_riu/top.sv                                                            ;         ;
-; hexdriver.sv                     ; yes             ; User SystemVerilog HDL File        ; /acct/mcs46/lab_riu/hexdriver.sv                                                      ;         ;
-; cpu.sv                           ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/lab_riu/cpu.sv                                                            ;         ;
-; instmem.dat                      ; yes             ; Auto-Found Unspecified File        ; /acct/mcs46/lab_riu/instmem.dat                                                       ;         ;
-; riscv_32_instr_decoder.sv        ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/lab_riu/riscv_32_instr_decoder.sv                                         ;         ;
-; ctrl_unit.sv                     ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/lab_riu/ctrl_unit.sv                                                      ;         ;
-; regfile.sv                       ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/lab_riu/regfile.sv                                                        ;         ;
-; alu.sv                           ; yes             ; Auto-Found SystemVerilog HDL File  ; /acct/mcs46/lab_riu/alu.sv                                                            ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal181.inc                   ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_mcc1.tdf           ; yes             ; Auto-Generated Megafunction        ; /acct/mcs46/lab_riu/db/altsyncram_mcc1.tdf                                            ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
-; multcore.inc                     ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/multcore.inc          ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/bypassff.inc          ;         ;
-; altshift.inc                     ; yes             ; Megafunction                       ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/altshift.inc          ;         ;
-; db/mult_46t.tdf                  ; yes             ; Auto-Generated Megafunction        ; /acct/mcs46/lab_riu/db/mult_46t.tdf                                                   ;         ;
-; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction        ; /acct/mcs46/lab_riu/db/mult_7dt.tdf                                                   ;         ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; instmem.dat                      ; yes             ; User Unspecified File        ; /acct/mcs46/lab_riu/instmem.dat                                                     ;         ;
+; hexdriver.sv                     ; yes             ; User SystemVerilog HDL File  ; /acct/mcs46/lab_riu/hexdriver.sv                                                    ;         ;
+; decoder.sv                       ; yes             ; User SystemVerilog HDL File  ; /acct/mcs46/lab_riu/decoder.sv                                                      ;         ;
+; cpu.sv                           ; yes             ; User SystemVerilog HDL File  ; /acct/mcs46/lab_riu/cpu.sv                                                          ;         ;
+; control_unit.sv                  ; yes             ; User SystemVerilog HDL File  ; /acct/mcs46/lab_riu/control_unit.sv                                                 ;         ;
+; alu.sv                           ; yes             ; User SystemVerilog HDL File  ; /acct/mcs46/lab_riu/alu.sv                                                          ;         ;
+; regfile.sv                       ; yes             ; User SystemVerilog HDL File  ; /acct/mcs46/lab_riu/regfile.sv                                                      ;         ;
+; top.sv                           ; yes             ; User SystemVerilog HDL File  ; /acct/mcs46/lab_riu/top.sv                                                          ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/aglobal181.inc      ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_46t.tdf                  ; yes             ; Auto-Generated Megafunction  ; /acct/mcs46/lab_riu/db/mult_46t.tdf                                                 ;         ;
+; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction  ; /acct/mcs46/lab_riu/db/mult_7dt.tdf                                                 ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /usr/local/3rdparty/altera/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; db/lpm_divide_hkm.tdf            ; yes             ; Auto-Generated Megafunction  ; /acct/mcs46/lab_riu/db/lpm_divide_hkm.tdf                                           ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; /acct/mcs46/lab_riu/db/sign_div_unsign_9nh.tdf                                      ;         ;
+; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction  ; /acct/mcs46/lab_riu/db/alt_u_div_6af.tdf                                            ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /acct/mcs46/lab_riu/db/add_sub_7pc.tdf                                              ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /acct/mcs46/lab_riu/db/add_sub_8pc.tdf                                              ;         ;
+; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction  ; /acct/mcs46/lab_riu/db/lpm_divide_kcm.tdf                                           ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -224,72 +217,65 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,556          ;
+; Estimated Total logic elements              ; 4,799          ;
 ;                                             ;                ;
-; Total combinational functions               ; 1487           ;
+; Total combinational functions               ; 4351           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 905            ;
-;     -- 3 input functions                    ; 487            ;
-;     -- <=2 input functions                  ; 95             ;
+;     -- 4 input functions                    ; 2563           ;
+;     -- 3 input functions                    ; 1618           ;
+;     -- <=2 input functions                  ; 170            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 1187           ;
-;     -- arithmetic mode                      ; 300            ;
+;     -- normal mode                          ; 3003           ;
+;     -- arithmetic mode                      ; 1348           ;
 ;                                             ;                ;
-; Total registers                             ; 171            ;
-;     -- Dedicated logic registers            ; 171            ;
+; Total registers                             ; 578            ;
+;     -- Dedicated logic registers            ; 578            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 108            ;
-; Total memory bits                           ; 2048           ;
+; I/O pins                                    ; 81             ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 16             ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 235            ;
-; Total fan-out                               ; 6923           ;
-; Average fan-out                             ; 3.54           ;
+; Maximum fan-out                             ; 578            ;
+; Total fan-out                               ; 17410          ;
+; Average fan-out                             ; 3.41           ;
 +---------------------------------------------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                       ;
-+----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+-----------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                            ; Entity Name     ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+-----------------+--------------+
-; |top                                         ; 1487 (1)            ; 171 (0)                   ; 2048        ; 16           ; 0       ; 8         ; 108  ; 0            ; |top                                                                           ; top             ; work         ;
-;    |cpu:my_cpu|                              ; 1430 (647)          ; 171 (87)                  ; 2048        ; 16           ; 0       ; 8         ; 0    ; 0            ; |top|cpu:my_cpu                                                                ; cpu             ; work         ;
-;       |alu:alu_inst|                         ; 627 (456)           ; 0 (0)                     ; 0           ; 16           ; 0       ; 8         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst                                                   ; alu             ; work         ;
-;          |lpm_mult:Mult0|                    ; 79 (0)              ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0                                    ; lpm_mult        ; work         ;
-;             |mult_7dt:auto_generated|        ; 79 (79)             ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0|mult_7dt:auto_generated            ; mult_7dt        ; work         ;
-;          |lpm_mult:Mult1|                    ; 92 (0)              ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst|lpm_mult:Mult1                                    ; lpm_mult        ; work         ;
-;             |mult_46t:auto_generated|        ; 92 (92)             ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:my_cpu|alu:alu_inst|lpm_mult:Mult1|mult_46t:auto_generated            ; mult_46t        ; work         ;
-;       |ctrl_unit:ctrl|                       ; 45 (45)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|ctrl_unit:ctrl                                                 ; ctrl_unit       ; work         ;
-;       |regfile:rf|                           ; 111 (111)           ; 84 (84)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|regfile:rf                                                     ; regfile         ; work         ;
-;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0                                ; altsyncram      ; work         ;
-;             |altsyncram_mcc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0|altsyncram_mcc1:auto_generated ; altsyncram_mcc1 ; work         ;
-;          |altsyncram:mem_rtl_1|              ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_1                                ; altsyncram      ; work         ;
-;             |altsyncram_mcc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_1|altsyncram_mcc1:auto_generated ; altsyncram_mcc1 ; work         ;
-;    |hexdriver:hex1|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex1                                                            ; hexdriver       ; work         ;
-;    |hexdriver:hex2|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex2                                                            ; hexdriver       ; work         ;
-;    |hexdriver:hex3|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex3                                                            ; hexdriver       ; work         ;
-;    |hexdriver:hex4|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex4                                                            ; hexdriver       ; work         ;
-;    |hexdriver:hex5|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex5                                                            ; hexdriver       ; work         ;
-;    |hexdriver:hex6|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex6                                                            ; hexdriver       ; work         ;
-;    |hexdriver:hex7|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex7                                                            ; hexdriver       ; work         ;
-;    |hexdriver:hex|                           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex                                                             ; hexdriver       ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+-----------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                  ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                   ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |top                                         ; 4351 (0)            ; 578 (0)                   ; 0           ; 16           ; 0       ; 8         ; 81   ; 0            ; |top                                                                                                                  ; top                 ; work         ;
+;    |cpu:mycpu|                               ; 4295 (682)          ; 578 (98)                  ; 0           ; 16           ; 0       ; 8         ; 0    ; 0            ; |top|cpu:mycpu                                                                                                        ; cpu                 ; work         ;
+;       |alu:go|                               ; 2849 (474)          ; 0 (0)                     ; 0           ; 16           ; 0       ; 8         ; 0    ; 0            ; |top|cpu:mycpu|alu:go                                                                                                 ; alu                 ; work         ;
+;          |lpm_divide:Div0|                   ; 1120 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;             |lpm_divide_hkm:auto_generated|  ; 1120 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                   ; lpm_divide_hkm      ; work         ;
+;                |sign_div_unsign_9nh:divider| ; 1120 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                   |alt_u_div_6af:divider|    ; 1120 (1120)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider ; alt_u_div_6af       ; work         ;
+;          |lpm_divide:Mod0|                   ; 1084 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;             |lpm_divide_kcm:auto_generated|  ; 1084 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                   ; lpm_divide_kcm      ; work         ;
+;                |sign_div_unsign_9nh:divider| ; 1084 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                   |alt_u_div_6af:divider|    ; 1084 (1084)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider ; alt_u_div_6af       ; work         ;
+;          |lpm_mult:Mult0|                    ; 79 (0)              ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_mult:Mult0                                                                                  ; lpm_mult            ; work         ;
+;             |mult_7dt:auto_generated|        ; 79 (79)             ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_mult:Mult0|mult_7dt:auto_generated                                                          ; mult_7dt            ; work         ;
+;          |lpm_mult:Mult1|                    ; 92 (0)              ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_mult:Mult1                                                                                  ; lpm_mult            ; work         ;
+;             |mult_46t:auto_generated|        ; 92 (92)             ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |top|cpu:mycpu|alu:go|lpm_mult:Mult1|mult_46t:auto_generated                                                          ; mult_46t            ; work         ;
+;       |control_unit:runner|                  ; 29 (29)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:mycpu|control_unit:runner                                                                                    ; control_unit        ; work         ;
+;       |regfile:rf|                           ; 735 (735)           ; 480 (480)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cpu:mycpu|regfile:rf                                                                                             ; regfile             ; work         ;
+;    |hexdriver:hex0|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex0                                                                                                   ; hexdriver           ; work         ;
+;    |hexdriver:hex1|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex1                                                                                                   ; hexdriver           ; work         ;
+;    |hexdriver:hex2|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex2                                                                                                   ; hexdriver           ; work         ;
+;    |hexdriver:hex3|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex3                                                                                                   ; hexdriver           ; work         ;
+;    |hexdriver:hex4|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex4                                                                                                   ; hexdriver           ; work         ;
+;    |hexdriver:hex5|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex5                                                                                                   ; hexdriver           ; work         ;
+;    |hexdriver:hex6|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex6                                                                                                   ; hexdriver           ; work         ;
+;    |hexdriver:hex7|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hexdriver:hex7                                                                                                   ; hexdriver           ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                         ;
-+--------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; Name                                                                                 ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
-+--------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0|altsyncram_mcc1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; None ;
-; cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_1|altsyncram_mcc1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; None ;
-+--------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
 
 
 +-----------------------------------------------------+
@@ -310,72 +296,561 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
 
 
-+-------------------------------------------------------------+
-; Logic Cells Representing Combinational Loops                ;
-+--------------------------------------------------------+----+
-; Logic Cell Name                                        ;    ;
-+--------------------------------------------------------+----+
-; cpu:my_cpu|Mux63~0                                     ;    ;
-; cpu:my_cpu|Mux62~0                                     ;    ;
-; cpu:my_cpu|Mux61~0                                     ;    ;
-; cpu:my_cpu|Mux60~0                                     ;    ;
-; cpu:my_cpu|Mux59~0                                     ;    ;
-; cpu:my_cpu|Mux58~0                                     ;    ;
-; cpu:my_cpu|Mux57~0                                     ;    ;
-; cpu:my_cpu|Mux56~0                                     ;    ;
-; cpu:my_cpu|Mux55~0                                     ;    ;
-; cpu:my_cpu|Mux54~0                                     ;    ;
-; cpu:my_cpu|Mux53~0                                     ;    ;
-; cpu:my_cpu|Mux52~0                                     ;    ;
-; cpu:my_cpu|Mux51~0                                     ;    ;
-; cpu:my_cpu|Mux50~0                                     ;    ;
-; cpu:my_cpu|Mux49~0                                     ;    ;
-; cpu:my_cpu|Mux48~0                                     ;    ;
-; cpu:my_cpu|Mux47~0                                     ;    ;
-; cpu:my_cpu|Mux46~0                                     ;    ;
-; cpu:my_cpu|Mux45~0                                     ;    ;
-; cpu:my_cpu|Mux44~0                                     ;    ;
-; cpu:my_cpu|Mux43~0                                     ;    ;
-; cpu:my_cpu|Mux42~0                                     ;    ;
-; cpu:my_cpu|Mux41~0                                     ;    ;
-; cpu:my_cpu|Mux40~0                                     ;    ;
-; cpu:my_cpu|Mux39~0                                     ;    ;
-; cpu:my_cpu|Mux38~0                                     ;    ;
-; cpu:my_cpu|Mux37~0                                     ;    ;
-; cpu:my_cpu|Mux36~0                                     ;    ;
-; cpu:my_cpu|Mux35~0                                     ;    ;
-; cpu:my_cpu|Mux34~0                                     ;    ;
-; cpu:my_cpu|Mux33~0                                     ;    ;
-; cpu:my_cpu|Mux32~0                                     ;    ;
-; Number of logic cells representing combinational loops ; 32 ;
-+--------------------------------------------------------+----+
-Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
 +---------------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                                    ;
-+-------------------------------------------+-------------------------------------------+
-; Register name                             ; Reason for Removal                        ;
-+-------------------------------------------+-------------------------------------------+
-; cpu:my_cpu|gpio_in_sync[18..31]           ; Stuck at GND due to stuck port data_in    ;
-; cpu:my_cpu|instruction_EX[3,11]           ; Stuck at GND due to stuck port data_in    ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[9] ; Stuck at GND due to stuck port data_in    ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[9] ; Stuck at GND due to stuck port data_in    ;
-; cpu:my_cpu|instruction_EX[1,4]            ; Merged with cpu:my_cpu|instruction_EX[0]  ;
-; cpu:my_cpu|instruction_EX[18]             ; Merged with cpu:my_cpu|instruction_EX[10] ;
-; cpu:my_cpu|pc_F[12..31]                   ; Lost fanout                               ;
-; Total Number of Removed Registers = 41    ;                                           ;
-+-------------------------------------------+-------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                            ;
-+-------------------------------+---------------------------+--------------------------------------------+
-; Register name                 ; Reason for Removal        ; Registers Removed due to This Register     ;
-+-------------------------------+---------------------------+--------------------------------------------+
-; cpu:my_cpu|instruction_EX[11] ; Stuck at GND              ; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[9], ;
-;                               ; due to stuck port data_in ; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[9]  ;
-+-------------------------------+---------------------------+--------------------------------------------+
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; cpu:mycpu|imm20_WB[0..11]               ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|rd_WB[4]                      ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|rd_WB[3]                      ; Merged with cpu:mycpu|imm20_WB[18]          ;
+; cpu:mycpu|regfile:rf|memory~512         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~544         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~576         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~608         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~640         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~672         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~704         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~736         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~768         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~800         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~832         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~864         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~896         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~928         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~960         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~992         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~513         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~545         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~577         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~609         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~641         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~673         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~705         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~737         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~769         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~801         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~833         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~865         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~897         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~929         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~961         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~993         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~514         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~546         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~578         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~610         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~642         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~674         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~706         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~738         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~770         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~802         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~834         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~866         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~898         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~930         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~962         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~994         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~515         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~547         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~579         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~611         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~643         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~675         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~707         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~739         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~771         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~803         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~835         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~867         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~899         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~931         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~963         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~995         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~516         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~548         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~580         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~612         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~644         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~676         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~708         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~740         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~772         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~804         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~836         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~868         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~900         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~932         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~964         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~996         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~517         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~549         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~581         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~613         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~645         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~677         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~709         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~741         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~773         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~805         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~837         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~869         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~901         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~933         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~965         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~997         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~518         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~550         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~582         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~614         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~646         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~678         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~710         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~742         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~774         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~806         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~838         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~870         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~902         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~934         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~966         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~998         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~519         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~551         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~583         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~615         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~647         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~679         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~711         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~743         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~775         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~807         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~839         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~871         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~903         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~935         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~967         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~999         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~520         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~552         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~584         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~616         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~648         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~680         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~712         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~744         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~776         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~808         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~840         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~872         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~904         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~936         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~968         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1000        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~521         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~553         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~585         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~617         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~649         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~681         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~713         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~745         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~777         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~809         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~841         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~873         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~905         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~937         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~969         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1001        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~522         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~554         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~586         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~618         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~650         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~682         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~714         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~746         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~778         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~810         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~842         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~874         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~906         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~938         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~970         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1002        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~523         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~555         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~587         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~619         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~651         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~683         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~715         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~747         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~779         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~811         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~843         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~875         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~907         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~939         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~971         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1003        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~524         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~556         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~588         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~620         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~652         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~684         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~716         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~748         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~780         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~812         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~844         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~876         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~908         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~940         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~972         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1004        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~525         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~557         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~589         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~621         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~653         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~685         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~717         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~749         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~781         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~813         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~845         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~877         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~909         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~941         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~973         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1005        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~526         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~558         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~590         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~622         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~654         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~686         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~718         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~750         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~782         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~814         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~846         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~878         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~910         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~942         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~974         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1006        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~527         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~559         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~591         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~623         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~655         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~687         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~719         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~751         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~783         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~815         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~847         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~879         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~911         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~943         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~975         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1007        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~528         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~560         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~592         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~624         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~656         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~688         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~720         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~752         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~784         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~816         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~848         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~880         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~912         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~944         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~976         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1008        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~529         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~561         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~593         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~625         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~657         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~689         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~721         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~753         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~785         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~817         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~849         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~881         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~913         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~945         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~977         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1009        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~530         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~562         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~594         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~626         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~658         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~690         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~722         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~754         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~786         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~818         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~850         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~882         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~914         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~946         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~978         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1010        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~531         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~563         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~595         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~627         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~659         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~691         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~723         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~755         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~787         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~819         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~851         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~883         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~915         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~947         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~979         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1011        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~532         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~564         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~596         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~628         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~660         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~692         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~724         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~756         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~788         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~820         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~852         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~884         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~916         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~948         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~980         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1012        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~533         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~565         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~597         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~629         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~661         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~693         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~725         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~757         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~789         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~821         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~853         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~885         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~917         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~949         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~981         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1013        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~534         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~566         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~598         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~630         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~662         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~694         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~726         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~758         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~790         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~822         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~854         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~886         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~918         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~950         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~982         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1014        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~535         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~567         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~599         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~631         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~663         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~695         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~727         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~759         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~791         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~823         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~855         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~887         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~919         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~951         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~983         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1015        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~536         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~568         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~600         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~632         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~664         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~696         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~728         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~760         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~792         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~824         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~856         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~888         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~920         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~952         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~984         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1016        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~537         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~569         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~601         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~633         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~665         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~697         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~729         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~761         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~793         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~825         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~857         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~889         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~921         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~953         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~985         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1017        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~538         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~570         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~602         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~634         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~666         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~698         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~730         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~762         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~794         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~826         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~858         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~890         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~922         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~954         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~986         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1018        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~539         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~571         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~603         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~635         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~667         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~699         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~731         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~763         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~795         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~827         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~859         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~891         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~923         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~955         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~987         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1019        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~540         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~572         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~604         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~636         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~668         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~700         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~732         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~764         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~796         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~828         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~860         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~892         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~924         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~956         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~988         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1020        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~541         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~573         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~605         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~637         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~669         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~701         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~733         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~765         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~797         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~829         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~861         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~893         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~925         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~957         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~989         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1021        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~542         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~574         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~606         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~638         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~670         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~702         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~734         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~766         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~798         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~830         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~862         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~894         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~926         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~958         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~990         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1022        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~543         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~575         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~607         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~639         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~671         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~703         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~735         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~767         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~799         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~831         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~863         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~895         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~927         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~959         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~991         ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|regfile:rf|memory~1023        ; Stuck at GND due to stuck port data_in      ;
+; cpu:mycpu|PC_FETCH[8..31]               ; Lost fanout                                 ;
+; cpu:mycpu|regfile:rf|memory~0           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~1           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~2           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~3           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~4           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~5           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~6           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~7           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~8           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~9           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~10          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~11          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~12          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~13          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~14          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~15          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~16          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~17          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~18          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~19          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~20          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~21          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~22          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~23          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~24          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~25          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~26          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~27          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~28          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~29          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~30          ; Stuck at GND due to stuck port clock_enable ;
+; cpu:mycpu|regfile:rf|memory~31          ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 582 ;                                             ;
++-----------------------------------------+---------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -383,403 +858,187 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 171   ;
-; Number of registers using Synchronous Clear  ; 26    ;
+; Total registers                              ; 578   ;
+; Number of registers using Synchronous Clear  ; 21    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 32    ;
+; Number of registers using Clock Enable       ; 512   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------+
-; Registers Added for RAM Pass-Through Logic                                   ;
-+--------------------------------------------+---------------------------------+
-; Register Name                              ; RAM Name                        ;
-+--------------------------------------------+---------------------------------+
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[0]  ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[1]  ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[2]  ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[3]  ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[4]  ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[5]  ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[6]  ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[7]  ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[8]  ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[9]  ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[10] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[11] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[12] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[13] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[14] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[15] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[16] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[17] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[18] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[19] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[20] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[21] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[22] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[23] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[24] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[25] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[26] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[27] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[28] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[29] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[30] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[31] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[32] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[33] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[34] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[35] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[36] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[37] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[38] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[39] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[40] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[41] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_0_bypass[42] ; cpu:my_cpu|regfile:rf|mem_rtl_0 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[0]  ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[1]  ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[2]  ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[3]  ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[4]  ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[5]  ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[6]  ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[7]  ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[8]  ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[9]  ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[10] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[11] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[12] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[13] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[14] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[15] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[16] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[17] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[18] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[19] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[20] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[21] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[22] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[23] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[24] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[25] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[26] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[27] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[28] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[29] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[30] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[31] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[32] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[33] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[34] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[35] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[36] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[37] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[38] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[39] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[40] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[41] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-; cpu:my_cpu|regfile:rf|mem_rtl_1_bypass[42] ; cpu:my_cpu|regfile:rf|mem_rtl_1 ;
-+--------------------------------------------+---------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |top|cpu:mycpu|gpio_out[3]              ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top|cpu:mycpu|regwrite_WB              ;
+; 20:1               ; 7 bits    ; 91 LEs        ; 77 LEs               ; 14 LEs                 ; Yes        ; |top|cpu:mycpu|R_WB[21]                 ;
+; 19:1               ; 8 bits    ; 96 LEs        ; 80 LEs               ; 16 LEs                 ; Yes        ; |top|cpu:mycpu|R_WB[12]                 ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 44 LEs               ; 8 LEs                  ; Yes        ; |top|cpu:mycpu|R_WB[6]                  ;
+; 21:1               ; 4 bits    ; 56 LEs        ; 48 LEs               ; 8 LEs                  ; Yes        ; |top|cpu:mycpu|R_WB[25]                 ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 24 LEs               ; 4 LEs                  ; Yes        ; |top|cpu:mycpu|R_WB[3]                  ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 26 LEs               ; 2 LEs                  ; Yes        ; |top|cpu:mycpu|R_WB[29]                 ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |top|cpu:mycpu|Mux9                     ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |top|cpu:mycpu|Mux29                    ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top|cpu:mycpu|Mux15                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |top|cpu:mycpu|regfile:rf|readdata1[24] ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; No         ; |top|cpu:mycpu|B[4]                     ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |top|cpu:mycpu|B[7]                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |top|cpu:my_cpu|gpio_out_reg[22]         ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |top|cpu:my_cpu|regfile:rf|readdata1[26] ;
-; 6:1                ; 20 bits   ; 80 LEs        ; 60 LEs               ; 20 LEs                 ; No         ; |top|cpu:my_cpu|Mux4                     ;
-; 7:1                ; 11 bits   ; 44 LEs        ; 33 LEs               ; 11 LEs                 ; No         ; |top|cpu:my_cpu|Mux22                    ;
-; 19:1               ; 6 bits    ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |top|cpu:my_cpu|Mux45                    ;
-; 18:1               ; 4 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |top|cpu:my_cpu|Mux55                    ;
-; 18:1               ; 4 bits    ; 48 LEs        ; 44 LEs               ; 4 LEs                  ; No         ; |top|cpu:my_cpu|Mux48                    ;
-; 20:1               ; 4 bits    ; 52 LEs        ; 44 LEs               ; 8 LEs                  ; No         ; |top|cpu:my_cpu|Mux36                    ;
-; 19:1               ; 4 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |top|cpu:my_cpu|Mux57                    ;
-; 21:1               ; 2 bits    ; 28 LEs        ; 26 LEs               ; 2 LEs                  ; No         ; |top|cpu:my_cpu|Mux34                    ;
-; 20:1               ; 2 bits    ; 26 LEs        ; 24 LEs               ; 2 LEs                  ; No         ; |top|cpu:my_cpu|Mux60                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------+
-; Source assignments for cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0|altsyncram_mcc1:auto_generated ;
-+---------------------------------+--------------------+------+------------------------------------+
-; Assignment                      ; Value              ; From ; To                                 ;
-+---------------------------------+--------------------+------+------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                  ;
-+---------------------------------+--------------------+------+------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------+
-; Source assignments for cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_1|altsyncram_mcc1:auto_generated ;
-+---------------------------------+--------------------+------+------------------------------------+
-; Assignment                      ; Value              ; From ; To                                 ;
-+---------------------------------+--------------------+------+------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                  ;
-+---------------------------------+--------------------+------+------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0 ;
-+------------------------------------+----------------------+---------------------------------+
-; Parameter Name                     ; Value                ; Type                            ;
-+------------------------------------+----------------------+---------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                         ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                      ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                    ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                    ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                  ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                         ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                         ;
-; WIDTH_A                            ; 32                   ; Untyped                         ;
-; WIDTHAD_A                          ; 5                    ; Untyped                         ;
-; NUMWORDS_A                         ; 32                   ; Untyped                         ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                         ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                         ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                         ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                         ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                         ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                         ;
-; WIDTH_B                            ; 32                   ; Untyped                         ;
-; WIDTHAD_B                          ; 5                    ; Untyped                         ;
-; NUMWORDS_B                         ; 32                   ; Untyped                         ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                         ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                         ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                         ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                         ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                         ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                         ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                         ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                         ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                         ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                         ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                         ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                         ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                         ;
-; BYTE_SIZE                          ; 8                    ; Untyped                         ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                         ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
-; INIT_FILE                          ; UNUSED               ; Untyped                         ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                         ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                         ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                         ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                         ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                         ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                         ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                         ;
-; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                         ;
-; CBXI_PARAMETER                     ; altsyncram_mcc1      ; Untyped                         ;
-+------------------------------------+----------------------+---------------------------------+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cpu:mycpu|alu:go|lpm_mult:Mult1    ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_46t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_1 ;
-+------------------------------------+----------------------+---------------------------------+
-; Parameter Name                     ; Value                ; Type                            ;
-+------------------------------------+----------------------+---------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                         ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                      ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                    ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                    ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                  ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                         ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                         ;
-; WIDTH_A                            ; 32                   ; Untyped                         ;
-; WIDTHAD_A                          ; 5                    ; Untyped                         ;
-; NUMWORDS_A                         ; 32                   ; Untyped                         ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                         ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                         ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                         ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                         ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                         ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                         ;
-; WIDTH_B                            ; 32                   ; Untyped                         ;
-; WIDTHAD_B                          ; 5                    ; Untyped                         ;
-; NUMWORDS_B                         ; 32                   ; Untyped                         ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                         ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                         ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                         ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                         ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                         ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                         ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                         ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                         ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                         ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                         ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                         ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                         ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                         ;
-; BYTE_SIZE                          ; 8                    ; Untyped                         ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                         ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
-; INIT_FILE                          ; UNUSED               ; Untyped                         ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                         ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                         ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                         ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                         ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                         ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                         ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                         ;
-; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                         ;
-; CBXI_PARAMETER                     ; altsyncram_mcc1      ; Untyped                         ;
-+------------------------------------+----------------------+---------------------------------+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cpu:mycpu|alu:go|lpm_mult:Mult0    ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_7dt     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: cpu:my_cpu|alu:alu_inst|lpm_mult:Mult1 ;
-+------------------------------------------------+--------------+-------------------------+
-; Parameter Name                                 ; Value        ; Type                    ;
-+------------------------------------------------+--------------+-------------------------+
-; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY              ;
-; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY            ;
-; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE            ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE          ;
-; LPM_WIDTHA                                     ; 32           ; Untyped                 ;
-; LPM_WIDTHB                                     ; 32           ; Untyped                 ;
-; LPM_WIDTHP                                     ; 64           ; Untyped                 ;
-; LPM_WIDTHR                                     ; 64           ; Untyped                 ;
-; LPM_WIDTHS                                     ; 1            ; Untyped                 ;
-; LPM_REPRESENTATION                             ; SIGNED       ; Untyped                 ;
-; LPM_PIPELINE                                   ; 0            ; Untyped                 ;
-; LATENCY                                        ; 0            ; Untyped                 ;
-; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                 ;
-; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                 ;
-; USE_EAB                                        ; OFF          ; Untyped                 ;
-; MAXIMIZE_SPEED                                 ; 5            ; Untyped                 ;
-; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                 ;
-; CARRY_CHAIN                                    ; MANUAL       ; Untyped                 ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K     ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                 ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                 ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                 ;
-; CBXI_PARAMETER                                 ; mult_46t     ; Untyped                 ;
-; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                 ;
-; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                 ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                 ;
-+------------------------------------------------+--------------+-------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cpu:mycpu|alu:go|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                 ;
+; LPM_WIDTHD             ; 32             ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_hkm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0 ;
-+------------------------------------------------+--------------+-------------------------+
-; Parameter Name                                 ; Value        ; Type                    ;
-+------------------------------------------------+--------------+-------------------------+
-; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY              ;
-; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY            ;
-; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE            ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE          ;
-; LPM_WIDTHA                                     ; 32           ; Untyped                 ;
-; LPM_WIDTHB                                     ; 32           ; Untyped                 ;
-; LPM_WIDTHP                                     ; 64           ; Untyped                 ;
-; LPM_WIDTHR                                     ; 64           ; Untyped                 ;
-; LPM_WIDTHS                                     ; 1            ; Untyped                 ;
-; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                 ;
-; LPM_PIPELINE                                   ; 0            ; Untyped                 ;
-; LATENCY                                        ; 0            ; Untyped                 ;
-; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                 ;
-; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                 ;
-; USE_EAB                                        ; OFF          ; Untyped                 ;
-; MAXIMIZE_SPEED                                 ; 5            ; Untyped                 ;
-; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                 ;
-; CARRY_CHAIN                                    ; MANUAL       ; Untyped                 ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K     ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                 ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                 ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                 ;
-; CBXI_PARAMETER                                 ; mult_7dt     ; Untyped                 ;
-; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                 ;
-; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                 ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                 ;
-+------------------------------------------------+--------------+-------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cpu:mycpu|alu:go|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                 ;
+; LPM_WIDTHD             ; 32             ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                       ;
-+-------------------------------------------+--------------------------------------------+
-; Name                                      ; Value                                      ;
-+-------------------------------------------+--------------------------------------------+
-; Number of entity instances                ; 2                                          ;
-; Entity Instance                           ; cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                  ;
-;     -- WIDTH_A                            ; 32                                         ;
-;     -- NUMWORDS_A                         ; 32                                         ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                               ;
-;     -- WIDTH_B                            ; 32                                         ;
-;     -- NUMWORDS_B                         ; 32                                         ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                     ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                               ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                       ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                  ;
-; Entity Instance                           ; cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_1 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                  ;
-;     -- WIDTH_A                            ; 32                                         ;
-;     -- NUMWORDS_A                         ; 32                                         ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                               ;
-;     -- WIDTH_B                            ; 32                                         ;
-;     -- NUMWORDS_B                         ; 32                                         ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                     ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                               ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                       ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                  ;
-+-------------------------------------------+--------------------------------------------+
-
-
-+--------------------------------------------------------------------------------+
-; lpm_mult Parameter Settings by Entity Instance                                 ;
-+---------------------------------------+----------------------------------------+
-; Name                                  ; Value                                  ;
-+---------------------------------------+----------------------------------------+
-; Number of entity instances            ; 2                                      ;
-; Entity Instance                       ; cpu:my_cpu|alu:alu_inst|lpm_mult:Mult1 ;
-;     -- LPM_WIDTHA                     ; 32                                     ;
-;     -- LPM_WIDTHB                     ; 32                                     ;
-;     -- LPM_WIDTHP                     ; 64                                     ;
-;     -- LPM_REPRESENTATION             ; SIGNED                                 ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                                     ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                                     ;
-;     -- USE_EAB                        ; OFF                                    ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                   ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                                     ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                                     ;
-; Entity Instance                       ; cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0 ;
-;     -- LPM_WIDTHA                     ; 32                                     ;
-;     -- LPM_WIDTHB                     ; 32                                     ;
-;     -- LPM_WIDTHP                     ; 64                                     ;
-;     -- LPM_REPRESENTATION             ; UNSIGNED                               ;
-;     -- INPUT_A_IS_CONSTANT            ; NO                                     ;
-;     -- INPUT_B_IS_CONSTANT            ; NO                                     ;
-;     -- USE_EAB                        ; OFF                                    ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                   ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx                                     ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx                                     ;
-+---------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                          ;
++---------------------------------------+---------------------------------+
+; Name                                  ; Value                           ;
++---------------------------------------+---------------------------------+
+; Number of entity instances            ; 2                               ;
+; Entity Instance                       ; cpu:mycpu|alu:go|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 32                              ;
+;     -- LPM_WIDTHB                     ; 32                              ;
+;     -- LPM_WIDTHP                     ; 64                              ;
+;     -- LPM_REPRESENTATION             ; SIGNED                          ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                              ;
+;     -- USE_EAB                        ; OFF                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                              ;
+; Entity Instance                       ; cpu:mycpu|alu:go|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                              ;
+;     -- LPM_WIDTHB                     ; 32                              ;
+;     -- LPM_WIDTHP                     ; 64                              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                        ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                              ;
+;     -- USE_EAB                        ; OFF                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                              ;
++---------------------------------------+---------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cpu:my_cpu|alu:alu_inst"                                                            ;
+; Port Connectivity Checks: "cpu:mycpu|alu:go"                                                                   ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -788,7 +1047,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------+
-; Port Connectivity Checks: "cpu:my_cpu"            ;
+; Port Connectivity Checks: "cpu:mycpu"             ;
 +-----------------+-------+----------+--------------+
 ; Port            ; Type  ; Severity ; Details      ;
 +-----------------+-------+----------+--------------+
@@ -801,27 +1060,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 108                         ;
-; cycloneiii_ff         ; 171                         ;
-;     ENA               ; 32                          ;
-;     SCLR              ; 26                          ;
-;     plain             ; 113                         ;
-; cycloneiii_lcell_comb ; 1495                        ;
-;     arith             ; 300                         ;
-;         2 data inputs ; 47                          ;
-;         3 data inputs ; 253                         ;
-;     normal            ; 1195                        ;
-;         0 data inputs ; 3                           ;
+; boundary_port         ; 81                          ;
+; cycloneiii_ff         ; 578                         ;
+;     ENA               ; 512                         ;
+;     SCLR              ; 21                          ;
+;     plain             ; 45                          ;
+; cycloneiii_lcell_comb ; 4359                        ;
+;     arith             ; 1348                        ;
+;         2 data inputs ; 45                          ;
+;         3 data inputs ; 1303                        ;
+;     normal            ; 3011                        ;
+;         0 data inputs ; 62                          ;
 ;         1 data inputs ; 10                          ;
-;         2 data inputs ; 43                          ;
-;         3 data inputs ; 234                         ;
-;         4 data inputs ; 905                         ;
+;         2 data inputs ; 61                          ;
+;         3 data inputs ; 315                         ;
+;         4 data inputs ; 2563                        ;
 ; cycloneiii_mac_mult   ; 8                           ;
 ; cycloneiii_mac_out    ; 8                           ;
-; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 16.00                       ;
-; Average LUT depth     ; 9.17                        ;
+; Max LUT depth         ; 136.50                      ;
+; Average LUT depth     ; 94.35                       ;
 +-----------------------+-----------------------------+
 
 
@@ -830,7 +1088,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:21     ;
 +----------------+--------------+
 
 
@@ -840,97 +1098,50 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sun Oct 19 18:12:16 2025
+    Info: Processing started: Sun Oct 26 18:05:26 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE2_115 -c DE2_115
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file top.sv
-    Info (12023): Found entity 1: top File: /acct/mcs46/lab_riu/top.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file hexdriver.sv
-    Info (12023): Found entity 1: hexdriver File: /acct/mcs46/lab_riu/hexdriver.sv Line: 1
-Info (12127): Elaborating entity "top" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at top.sv(85): truncated value with size 26 to match size of target (24) File: /acct/mcs46/lab_riu/top.sv Line: 85
-Warning (10230): Verilog HDL assignment warning at top.sv(96): truncated value with size 32 to match size of target (24) File: /acct/mcs46/lab_riu/top.sv Line: 96
-Warning (10034): Output port "LEDG" at top.sv(15) has no driver File: /acct/mcs46/lab_riu/top.sv Line: 15
-Warning (10034): Output port "LEDR" at top.sv(16) has no driver File: /acct/mcs46/lab_riu/top.sv Line: 16
-Info (12128): Elaborating entity "hexdriver" for hierarchy "hexdriver:hex" File: /acct/mcs46/lab_riu/top.sv Line: 59
-Warning (12125): Using design file cpu.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: hexdriver File: /acct/mcs46/lab_riu/hexdriver.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file decoder.sv
+    Info (12023): Found entity 1: decoder File: /acct/mcs46/lab_riu/decoder.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file cpu.sv
     Info (12023): Found entity 1: cpu File: /acct/mcs46/lab_riu/cpu.sv Line: 3
-Info (12128): Elaborating entity "cpu" for hierarchy "cpu:my_cpu" File: /acct/mcs46/lab_riu/top.sv Line: 76
-Warning (10850): Verilog HDL warning at cpu.sv(64): number of words (45) in memory file does not match the number of elements in the address range [0:4095] File: /acct/mcs46/lab_riu/cpu.sv Line: 64
-Warning (10030): Net "instruction_mem.data_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/lab_riu/cpu.sv Line: 61
-Warning (10030): Net "instruction_mem.waddr_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/lab_riu/cpu.sv Line: 61
-Warning (10030): Net "instruction_mem.we_a" at cpu.sv(61) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/lab_riu/cpu.sv Line: 61
-Warning (12125): Using design file riscv_32_instr_decoder.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: riscv_32_instr_decoder File: /acct/mcs46/lab_riu/riscv_32_instr_decoder.sv Line: 7
-Info (12128): Elaborating entity "riscv_32_instr_decoder" for hierarchy "cpu:my_cpu|riscv_32_instr_decoder:decode" File: /acct/mcs46/lab_riu/cpu.sv Line: 90
-Warning (12125): Using design file ctrl_unit.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ctrl_unit File: /acct/mcs46/lab_riu/ctrl_unit.sv Line: 11
-Info (12128): Elaborating entity "ctrl_unit" for hierarchy "cpu:my_cpu|ctrl_unit:ctrl" File: /acct/mcs46/lab_riu/cpu.sv Line: 106
-Warning (12125): Using design file regfile.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: regfile File: /acct/mcs46/lab_riu/regfile.sv Line: 3
-Info (12128): Elaborating entity "regfile" for hierarchy "cpu:my_cpu|regfile:rf" File: /acct/mcs46/lab_riu/cpu.sv Line: 117
-Warning (12125): Using design file alu.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: alu File: /acct/mcs46/lab_riu/alu.sv Line: 7
-Info (12128): Elaborating entity "alu" for hierarchy "cpu:my_cpu|alu:alu_inst" File: /acct/mcs46/lab_riu/cpu.sv Line: 125
-Warning (10036): Verilog HDL or VHDL warning at alu.sv(15): object "mullu" assigned a value but never read File: /acct/mcs46/lab_riu/alu.sv Line: 15
-Warning (276020): Inferred RAM node "cpu:my_cpu|regfile:rf|mem_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Warning (276020): Inferred RAM node "cpu:my_cpu|regfile:rf|mem_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Info (12021): Found 1 design units, including 1 entities, in source file control_unit.sv
+    Info (12023): Found entity 1: control_unit File: /acct/mcs46/lab_riu/control_unit.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
+    Info (12023): Found entity 1: alu File: /acct/mcs46/lab_riu/alu.sv Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file regfile.sv
+    Info (12023): Found entity 1: regfile File: /acct/mcs46/lab_riu/regfile.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file top.sv
+    Info (12023): Found entity 1: top File: /acct/mcs46/lab_riu/top.sv Line: 2
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Info (12128): Elaborating entity "cpu" for hierarchy "cpu:mycpu" File: /acct/mcs46/lab_riu/top.sv Line: 25
+Warning (10850): Verilog HDL warning at cpu.sv(61): number of words (45) in memory file does not match the number of elements in the address range [0:255] File: /acct/mcs46/lab_riu/cpu.sv Line: 61
+Warning (10030): Net "imem.data_a" at cpu.sv(55) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/lab_riu/cpu.sv Line: 55
+Warning (10030): Net "imem.waddr_a" at cpu.sv(55) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/lab_riu/cpu.sv Line: 55
+Warning (10030): Net "imem.we_a" at cpu.sv(55) has no driver or initial value, using a default initial value '0' File: /acct/mcs46/lab_riu/cpu.sv Line: 55
+Info (12128): Elaborating entity "decoder" for hierarchy "cpu:mycpu|decoder:mydecode" File: /acct/mcs46/lab_riu/cpu.sv Line: 76
+Info (12128): Elaborating entity "control_unit" for hierarchy "cpu:mycpu|control_unit:runner" File: /acct/mcs46/lab_riu/cpu.sv Line: 88
+Warning (10270): Verilog HDL Case Statement warning at control_unit.sv(41): incomplete case statement has no default case item File: /acct/mcs46/lab_riu/control_unit.sv Line: 41
+Warning (10270): Verilog HDL Case Statement warning at control_unit.sv(47): incomplete case statement has no default case item File: /acct/mcs46/lab_riu/control_unit.sv Line: 47
+Warning (10270): Verilog HDL Case Statement warning at control_unit.sv(27): incomplete case statement has no default case item File: /acct/mcs46/lab_riu/control_unit.sv Line: 27
+Warning (10270): Verilog HDL Case Statement warning at control_unit.sv(22): incomplete case statement has no default case item File: /acct/mcs46/lab_riu/control_unit.sv Line: 22
+Info (12128): Elaborating entity "regfile" for hierarchy "cpu:mycpu|regfile:rf" File: /acct/mcs46/lab_riu/cpu.sv Line: 99
+Info (12128): Elaborating entity "alu" for hierarchy "cpu:mycpu|alu:go" File: /acct/mcs46/lab_riu/cpu.sv Line: 119
+Warning (10036): Verilog HDL or VHDL warning at alu.sv(14): object "mullu" assigned a value but never read File: /acct/mcs46/lab_riu/alu.sv Line: 14
+Info (12128): Elaborating entity "hexdriver" for hierarchy "hexdriver:hex0" File: /acct/mcs46/lab_riu/top.sv Line: 27
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "cpu:mycpu|regfile:rf|memory" is uninferred due to asynchronous read logic File: /acct/mcs46/lab_riu/regfile.sv Line: 13
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/acct/mcs46/lab_riu/db/DE2_115.ram0_cpu_1987c.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Info (19000): Inferred 2 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "cpu:my_cpu|regfile:rf|mem_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 32
-        Info (286033): Parameter WIDTHAD_A set to 5
-        Info (286033): Parameter NUMWORDS_A set to 32
-        Info (286033): Parameter WIDTH_B set to 32
-        Info (286033): Parameter WIDTHAD_B set to 5
-        Info (286033): Parameter NUMWORDS_B set to 32
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "cpu:my_cpu|regfile:rf|mem_rtl_1" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 32
-        Info (286033): Parameter WIDTHAD_A set to 5
-        Info (286033): Parameter NUMWORDS_A set to 32
-        Info (286033): Parameter WIDTH_B set to 32
-        Info (286033): Parameter WIDTHAD_B set to 5
-        Info (286033): Parameter NUMWORDS_B set to 32
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-Info (278001): Inferred 2 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "cpu:my_cpu|alu:alu_inst|Mult1" File: /acct/mcs46/lab_riu/alu.sv Line: 22
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "cpu:my_cpu|alu:alu_inst|Mult0" File: /acct/mcs46/lab_riu/alu.sv Line: 21
-Info (12130): Elaborated megafunction instantiation "cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0"
-Info (12133): Instantiated megafunction "cpu:my_cpu|regfile:rf|altsyncram:mem_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info (12134): Parameter "WIDTH_A" = "32"
-    Info (12134): Parameter "WIDTHAD_A" = "5"
-    Info (12134): Parameter "NUMWORDS_A" = "32"
-    Info (12134): Parameter "WIDTH_B" = "32"
-    Info (12134): Parameter "WIDTHAD_B" = "5"
-    Info (12134): Parameter "NUMWORDS_B" = "32"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
-    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_mcc1.tdf
-    Info (12023): Found entity 1: altsyncram_mcc1 File: /acct/mcs46/lab_riu/db/altsyncram_mcc1.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "cpu:my_cpu|alu:alu_inst|lpm_mult:Mult1" File: /acct/mcs46/lab_riu/alu.sv Line: 22
-Info (12133): Instantiated megafunction "cpu:my_cpu|alu:alu_inst|lpm_mult:Mult1" with the following parameter: File: /acct/mcs46/lab_riu/alu.sv Line: 22
+Info (278001): Inferred 4 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "cpu:mycpu|alu:go|Mult1" File: /acct/mcs46/lab_riu/alu.sv Line: 21
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "cpu:mycpu|alu:go|Mult0" File: /acct/mcs46/lab_riu/alu.sv Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "cpu:mycpu|alu:go|Div0" File: /acct/mcs46/lab_riu/alu.sv Line: 48
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "cpu:mycpu|alu:go|Mod0" File: /acct/mcs46/lab_riu/alu.sv Line: 49
+Info (12130): Elaborated megafunction instantiation "cpu:mycpu|alu:go|lpm_mult:Mult1" File: /acct/mcs46/lab_riu/alu.sv Line: 21
+Info (12133): Instantiated megafunction "cpu:mycpu|alu:go|lpm_mult:Mult1" with the following parameter: File: /acct/mcs46/lab_riu/alu.sv Line: 21
     Info (12134): Parameter "LPM_WIDTHA" = "32"
     Info (12134): Parameter "LPM_WIDTHB" = "32"
     Info (12134): Parameter "LPM_WIDTHP" = "64"
@@ -942,8 +1153,8 @@ Info (12133): Instantiated megafunction "cpu:my_cpu|alu:alu_inst|lpm_mult:Mult1"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_46t.tdf
     Info (12023): Found entity 1: mult_46t File: /acct/mcs46/lab_riu/db/mult_46t.tdf Line: 30
-Info (12130): Elaborated megafunction instantiation "cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0" File: /acct/mcs46/lab_riu/alu.sv Line: 21
-Info (12133): Instantiated megafunction "cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0" with the following parameter: File: /acct/mcs46/lab_riu/alu.sv Line: 21
+Info (12130): Elaborated megafunction instantiation "cpu:mycpu|alu:go|lpm_mult:Mult0" File: /acct/mcs46/lab_riu/alu.sv Line: 20
+Info (12133): Instantiated megafunction "cpu:mycpu|alu:go|lpm_mult:Mult0" with the following parameter: File: /acct/mcs46/lab_riu/alu.sv Line: 20
     Info (12134): Parameter "LPM_WIDTHA" = "32"
     Info (12134): Parameter "LPM_WIDTHB" = "32"
     Info (12134): Parameter "LPM_WIDTHP" = "64"
@@ -955,58 +1166,53 @@ Info (12133): Instantiated megafunction "cpu:my_cpu|alu:alu_inst|lpm_mult:Mult0"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
     Info (12023): Found entity 1: mult_7dt File: /acct/mcs46/lab_riu/db/mult_7dt.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "cpu:mycpu|alu:go|lpm_divide:Div0" File: /acct/mcs46/lab_riu/alu.sv Line: 48
+Info (12133): Instantiated megafunction "cpu:mycpu|alu:go|lpm_divide:Div0" with the following parameter: File: /acct/mcs46/lab_riu/alu.sv Line: 48
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hkm.tdf
+    Info (12023): Found entity 1: lpm_divide_hkm File: /acct/mcs46/lab_riu/db/lpm_divide_hkm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: /acct/mcs46/lab_riu/db/sign_div_unsign_9nh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
+    Info (12023): Found entity 1: alt_u_div_6af File: /acct/mcs46/lab_riu/db/alt_u_div_6af.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: /acct/mcs46/lab_riu/db/add_sub_7pc.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: /acct/mcs46/lab_riu/db/add_sub_8pc.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "cpu:mycpu|alu:go|lpm_divide:Mod0" File: /acct/mcs46/lab_riu/alu.sv Line: 49
+Info (12133): Instantiated megafunction "cpu:mycpu|alu:go|lpm_divide:Mod0" with the following parameter: File: /acct/mcs46/lab_riu/alu.sv Line: 49
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kcm.tdf
+    Info (12023): Found entity 1: lpm_divide_kcm File: /acct/mcs46/lab_riu/db/lpm_divide_kcm.tdf Line: 24
 Info (13014): Ignored 456 buffer(s)
     Info (13019): Ignored 456 SOFT buffer(s)
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDG[0]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[1]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[2]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[3]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[4]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[5]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[6]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[7]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDG[8]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 15
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[10]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[11]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[12]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[13]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[14]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[15]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[16]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
-    Warning (13410): Pin "LEDR[17]" is stuck at GND File: /acct/mcs46/lab_riu/top.sv Line: 16
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 20 registers lost all their fanouts during netlist optimizations.
+Info (17049): 24 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /acct/mcs46/lab_riu/DE2_115.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 5 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK2_50" File: /acct/mcs46/lab_riu/top.sv Line: 11
-    Warning (15610): No output dependent on input pin "CLOCK3_50" File: /acct/mcs46/lab_riu/top.sv Line: 12
-    Warning (15610): No output dependent on input pin "KEY[1]" File: /acct/mcs46/lab_riu/top.sv Line: 19
-    Warning (15610): No output dependent on input pin "KEY[2]" File: /acct/mcs46/lab_riu/top.sv Line: 19
-    Warning (15610): No output dependent on input pin "KEY[3]" File: /acct/mcs46/lab_riu/top.sv Line: 19
-Info (21057): Implemented 1787 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: /acct/mcs46/lab_riu/top.sv Line: 4
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: /acct/mcs46/lab_riu/top.sv Line: 5
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /acct/mcs46/lab_riu/top.sv Line: 6
+    Warning (15610): No output dependent on input pin "KEY[2]" File: /acct/mcs46/lab_riu/top.sv Line: 6
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /acct/mcs46/lab_riu/top.sv Line: 6
+Info (21057): Implemented 4928 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 25 input pins
-    Info (21059): Implemented 83 output pins
-    Info (21061): Implemented 1599 logic cells
-    Info (21064): Implemented 64 RAM segments
+    Info (21059): Implemented 56 output pins
+    Info (21061): Implemented 4831 logic cells
     Info (21062): Implemented 16 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 1051 megabytes
-    Info: Processing ended: Sun Oct 19 18:12:35 2025
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
+    Info: Peak virtual memory: 1044 megabytes
+    Info: Processing ended: Sun Oct 26 18:05:56 2025
+    Info: Elapsed time: 00:00:30
+    Info: Total CPU time (on all processors): 00:00:36
 
 
 +------------------------------------------+

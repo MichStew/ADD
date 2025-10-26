@@ -1,6 +1,6 @@
 # vsim -pedanticerrors -hazards -c -sva -immedassert work.simtop -do "/dev/stdin" 
-# Start time: 17:57:54 on Oct 19,2025
-# ** Note: (vsim-3812) Design is being optimized...
+# Start time: 15:51:34 on Oct 22,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 2020.1 linux_x86_64 Jan 28 2020
 # //
@@ -17,28 +17,16 @@
 # //
 # Loading sv_std.std
 # Loading work.simtop(fast)
-# Loading work.cpu(fast)
 # do /dev/stdin
-# ======================================
-# Starting CPU test
-# ---------------------------------------
-# 
-#  Test 1: Instruction Fetch (show PC and instruction_EX)
-#############  Autofindloop Analysis  ###############
-#############  Loop found at time 45 ns ###############
-#   Active process: Atomic Verilog @ sub-iteration 0
-#     Source: top.sv:70
-#   Active process: Atomic Verilog @ sub-iteration 1
-#     Source: top.sv:70
-#   Active process: Atomic Verilog @ sub-iteration 1
-#     Source: top.sv:70
-#   Active process: Atomic Verilog @ sub-iteration 1
-#     Source: top.sv:70
-#   Active process: Atomic Verilog @ sub-iteration 2
-#     Source: top.sv:70
-################# END OF LOOP #################
-# ** Error (suppressible): (vsim-3601) Iteration limit 10000000 reached at time 45 ns.
-# 
-# <EOF>
-# End time: 17:57:56 on Oct 19,2025, Elapsed time: 0:00:02
-# Errors: 1, Warnings: 0
+# === RISC-V CPU binary→hex conversion test ===
+# SW=42 | expected gpio_out=0x42 | got=0x42
+# PASS 
+# SW=123 | expected gpio_out=0x123 | got=0x123
+# test passed
+# SW=999 | expected gpio_out=0x999 | got=0x999
+# test passed
+# === Test complete ===
+# ** Note: $finish    : simtop.sv(88)
+#    Time: 3035 ns  Iteration: 1  Instance: /simtop
+# End time: 15:51:35 on Oct 22,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
