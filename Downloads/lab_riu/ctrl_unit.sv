@@ -89,7 +89,7 @@ module ctrl_unit(
                 regsel_EX   = 2'b10;
                 GPIO_we     = 1'b0; 
                 
-                if      (funct3 == 3'b000) aluop = 4'b; // JALR
+                if      (funct3 == 3'b000) aluop = 4'b????; // JALR
             end
 
             // ---------------------- B ----------------------
@@ -100,15 +100,15 @@ module ctrl_unit(
                 // ...
 
                 if  (funct3 == 3'b000) // b
-                    aluop_EX = 4'b;
+                    aluop_EX = 4'b????;
                 else if  (funct3 == 3'b101) // bge
-                    aluop_EX = 4'b;
+                    aluop_EX = 4'b????;
                 else if  (funct3 == 3'b111) // bgeu
-                    aluop_EX = 4'b;
+                    aluop_EX = 4'b????;
                 else if  (funct3 == 3'b100) // blt
-                    aluop_EX = 4'b;
+                    aluop_EX = 4'b????;
                 else if  (funct3 == 3'b110) // bltu
-                    aluop_EX = 4'b;
+                    aluop_EX = 4'b????;
 
             end
 
