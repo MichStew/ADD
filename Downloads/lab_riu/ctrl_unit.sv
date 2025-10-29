@@ -79,6 +79,40 @@ module ctrl_unit(
                 else if (funct3 == 3'b111) aluop_EX = 4'b0000; // ANDI
             end
 
+            // ---------------------- J ----------------------
+            // why does it say do I type if the opcode is different lmao
+            // --------------------- JALR ----------------------- // 
+            7'b1100111: begin
+                // make sure these are correct
+                regwrite_EX = 1'b1;
+                alusrc_EX   = 2'b01;
+                regsel_EX   = 2'b10;
+                GPIO_we     = 1'b0; 
+                
+                if      (funct3 == 3'b000) aluop = 4'b; // JALR
+            end
+
+            // ---------------------- B ----------------------
+            // B Type Instructions - "tHESE PREVENT THE cpu FROM EXECUTING THE NEXT INSTRUCTION IN THE PROGRAM, AND INSTEAD BEGIN A SEQ. OF INSTRUCTIONS IN ANOTHER MEMORY LOCAITON
+            7'1100011: begin
+
+                // defaults
+                // ...
+
+                if  (funct3 == 3'b000) // b
+                    aluop_EX = 4'b;
+                else if  (funct3 == 3'b101) // bge
+                    aluop_EX = 4'b;
+                else if  (funct3 == 3'b111) // bgeu
+                    aluop_EX = 4'b;
+                else if  (funct3 == 3'b100) // blt
+                    aluop_EX = 4'b;
+                else if  (funct3 == 3'b110) // bltu
+                    aluop_EX = 4'b;
+
+            end
+
+
             // -------------------- U TYPE (LUI) --------------------
             7'b0110111: begin
                 regwrite_EX = 1'b1;
