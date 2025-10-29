@@ -48,7 +48,11 @@ module cpu (
     if (!rst) begin 
       PC_FETCH <= 32'd0; // we want decimal, and also to read after the clk so we dont have timing issue 
     end else begin 
+    case() 
+    
       PC_FETCH <= PC_FETCH + 1;
+      // have to add branch_addr, jal_addr, and jal_addr as possible next values 
+      // this implementation will use a mux
     end 
   end 
   
@@ -117,6 +121,7 @@ module cpu (
   .R(R_EX),
   .zero(zero) 
 );
+
   always_ff @(posedge clk) begin 
     if (!rst) begin 
       R_WB <= 32'd0;

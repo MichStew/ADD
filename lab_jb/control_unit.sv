@@ -4,7 +4,11 @@ module control_unit (
   input logic [2:0] funct3, 
   input logic [6:0] funct7, 
   input logic [11:0] csr,
-   
+  
+     // new input and output for lab4
+  input  logic stall_EX, // if this is asserted dont write registers
+  output logic stall_FETCH,
+  
   output logic [3:0] aluop, 
   output logic alusrc, 
   output logic [1:0] regsel, 
@@ -66,7 +70,7 @@ module control_unit (
           3'h4 : begin aluop = 4'b0010; end  // xori
           3'h6 : begin aluop = 4'b0001; end  // ori
           3'h7 : begin aluop = 4'b0000; end  // andi
-          3'h5 : begin 
+          3'h67 : begin //trying to 
             if (funct7 == 7'h00) begin 
               aluop = 4'b1001; // srli
             end else begin
@@ -99,6 +103,20 @@ module control_unit (
             end
           endcase
         end
+        // B type instructions 
+        // need to take in opcode 
+        // we will shift register by certain amount to get the new register to go to
+        // im assuming the ALU will do the shifting and then return the new PC_Fetch? 
+        7'h63 : begin //branch instructions
+          case(funct3) // we have to shift the register by a certain amount, idk how to actally implement this currently
+          // you can find the settings for these in the slides, i will put them here for ease of use 
+          //set aluop to SLT for blt, SLTU for bltu, SUB for beq and bne
+          // use ALU output R_EX to resolve branches 
+            3'h0 : begin aluop = 4'b1000; end // beq
+            3'h3 : begin aluop = 4'b1000; end // bge
+            3'h7 : begin aluop = 4'b10000; end // bgeu
+            3'h4 : begin aluop = 4'b1000; end // blt
+            3'h6 : begin aluop = 4'b1000; end // bltu 
       end
     endcase
   end
