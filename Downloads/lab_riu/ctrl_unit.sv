@@ -13,13 +13,14 @@ module ctrl_unit(
     input logic [2:0] funct3,   // funct3 field
     input logic [6:0] funct7,   // funct7 field
     input logic [11:0] imm12,   // immediate for CSR/GPIO instructions
-    input logic [19:0] imm20,
+    input logic [19:0] imm20,   // legacy
+    
     output logic [1:0] alusrc_EX,
     output logic        GPIO_we,
     output logic        regwrite_EX,
     output logic [1:0] regsel_EX,
     output logic [3:0] aluop_EX,
-    output logic pcsrc_ctrl_EX, // 2 bits!  seq, jal, jalr, or 01 for branch
+    output logic [1:0] pcsrc_ctrl_EX, // 2 bits!  seq (00), jal, jalr, or 01 for branch
 
 );
 
@@ -30,6 +31,7 @@ module ctrl_unit(
         GPIO_we     = 1'b0;
         regsel_EX   = 2'b00;
         aluop_EX    = 4'b0000;
+        pcsrc_ctrl_EX  = 2'b00; // defautl to sequential; 00 == seq
 
         case(op)
             // -------------------- R TYPE --------------------
@@ -37,7 +39,7 @@ module ctrl_unit(
                 regwrite_EX = 1'b1;
                 alusrc_EX   = 2'b00;
                 regsel_EX   = 2'b10;
-                GPIO_we     = 1'b0;
+                GPIO_we     = 1'b0; // no write
 
                 if (funct7 == 7'b0000000) begin
                     if      (funct3 == 3'b000) aluop_EX = 4'b0011; // ADD
@@ -87,12 +89,13 @@ module ctrl_unit(
             7'b1100111: begin
                 // make sure these are correct
                 regwrite_EX = 1'b1;
-                alusrc_EX   = 2'b01;
+                alusrc_EX   = 2'b10;
                 regsel_EX   = 2'b10;
-                GPIO_we     = 1'b0; 
                 
                 if      (funct3 == 3'b000) aluop = 4'b????; // JALR
             end
+
+            // TODO: J Type
 
             // ---------------------- B ----------------------
             // B Type Instructions - "tHESE PREVENT THE cpu FROM EXECUTING THE NEXT INSTRUCTION IN THE PROGRAM, AND INSTEAD BEGIN A SEQ. OF INSTRUCTIONS IN ANOTHER MEMORY LOCAITON
