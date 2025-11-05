@@ -106,25 +106,36 @@ module cpu(
             .rs2(rs2),
             .rd(rd),
 
-            .imm12(imm12),
-            .imm20(imm20)
-            // .type_of_instruction(type_of_instruction) // no mas
+            /* from design before J and B instructions */ 
+            //.imm12(imm12),
+            // .imm20(imm20)
+
+            .imm_I  (imm_I),
+            .imm_B  (imm_B),
+            .imm_U  (imm_U),
+            .imm_J  (imm_J) 
     );
+
+
+    /* =========== TODO: Control signals ... defaults ? =========== */
+    /* ==                                                       /* == 
+    /* =========================================================== */
 
     //We wire the control unit to above wires declared in "Control unit wiring" section
     ctrl_unit ctrl (
             .op(opcode),
             .funct3(funct3),
             .funct7(funct7),
-            .imm12(imm12),
-            .imm20(imm20), 
+            // .imm12(imm12),
+            // .imm20(imm20), 
 
             /* outputs */
             .alusrc_EX(alusrc_EX),     
             .GPIO_we(GPIO_we),
             .regwrite_EX(regwrite_EX),
-            .regsel_EX(regsel_EX), // 1 bit
+            .regsel_EX(regsel_EX), // 1 or 2 bit? TODO
             .aluop_EX(aluop_EX) // isn't that four bits*/
+            .pcsrc_ctrl_EX(pcsrc_ctrl_EX)
     );
     
     regfile rf (
