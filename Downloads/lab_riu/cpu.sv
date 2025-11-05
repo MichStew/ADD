@@ -16,6 +16,28 @@ module cpu(
     // [PC] -> [Instruction Memory] -> [Instruction Register]
 
     /* FETCH STAGE */
+
+    // TODO For Fetch Stage ... add a separate bus for branch vs j-type instructions vs. r-type
+    /* 
+    – Add branch_addr, jal_addr, and jalr_addr as possible next state values for PC_FETCH
+    – Add pcsrc_EX to control PC mux -- this will be used to determine whether sequential next instruction, or if we need to send a different thang.
+    – Add stall_FETCH as output of control unit
+    – Add stall_EX as input to control unit
+    – Add PC_EX as 4th input to regdst mux
+    */
+
+    /* Branch Resolution (is a branch taken?)
+    pcsrc_ex = 2'b01 // same parameter used in mux for fetch next address
+    beq sub R_EX == 32'b0
+    bne sub R_EX == 32'b0 
+    blt slt 32'b1
+    bltu sltu 32'b1
+    bge slt b0
+    bgeu sltu 32'b0 
+
+    // these conditions determine whether pcsrc_EX indicates fetching for a branch addy or next instruction
+    */
+
     // need to declare instruction fields still 
     logic [6:0] opcode; 
     logic [2:0] funct3;
@@ -26,8 +48,8 @@ module cpu(
     
     //control signals
     logic [1:0] alusrc_EX;
-    logic [0:0] GPIO_we; 
-    logic [0:0] regwrite_EX;
+    logic GPIO_we; 
+    logic regwrite_EX;
     logic [1:0] regsel_EX;
     logic [3:0] aluop_EX;
     
@@ -42,15 +64,11 @@ module cpu(
     //GPIO registers
     logic [31:0] gpio_out_reg;
     
-    
-    
     logic [31:0] pc_F, pc_next_F;
     logic [31:0] instruction_F;
+    logic [31:0] instruction_EX;
 
     // instruction memory
-        // also where PC might live? based on CPU diagram
-        // logic 31 instruction_mem 4095:0 
-        // logic 31 instruction_ex 
         // instr_mem imem (
     //     .clk (clk),
     //     .addr(pc_F),
@@ -60,17 +78,21 @@ module cpu(
     // "initializing instruction memory" from slides
     logic [31:0] instruction_mem [4095:0];
     logic [31:0] instruction_EX;
+
     //needs to follow naming of compiled rars program 
     initial $readmemh("instmem.dat", instruction_mem);
 
+    // PC / instruction fetch
     always_ff @(posedge clk)
         if (res) begin
-        instruction_EX <= 32'b0;
-        pc_F <= 32'b0;
-        end else begin
-        instruction_EX <= instruction_mem[pc_F[11:2]];
-        pc_F <= pc_F + 32'd4;
+            instruction_EX <= 32'b0;
+            pc_F <= 32'b0;
+        end else 
+        begin
+            instruction_EX <= instruction_mem[pc_F[11:2]];
+            pc_F <= pc_F + 32'd4; // extend to be conditional, sequential or not
         end
+    end
 
 	riscv_32_instr_decoder decode (
 
