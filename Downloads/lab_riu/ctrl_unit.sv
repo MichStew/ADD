@@ -15,10 +15,12 @@ module ctrl_unit(
     input logic [11:0] imm12,   // immediate for CSR/GPIO instructions
     input logic [19:0] imm20,
     output logic [1:0] alusrc_EX,
-    output logic GPIO_we,
-    output logic regwrite_EX,
+    output logic        GPIO_we,
+    output logic        regwrite_EX,
     output logic [1:0] regsel_EX,
-    output logic [3:0] aluop_EX
+    output logic [3:0] aluop_EX,
+    output logic pcsrc_ctrl_EX, // 2 bits!  seq, jal, jalr, or 01 for branch
+
 );
 
     always_comb begin
@@ -108,7 +110,7 @@ module ctrl_unit(
                 else if  (funct3 == 3'b100) // blt
                     aluop_EX = 4'b????;
                 else if  (funct3 == 3'b110) // bltu
-                    aluop_EX = 4'b????;
+                    aluop_EX = 4'b????~;
 
             end
 
